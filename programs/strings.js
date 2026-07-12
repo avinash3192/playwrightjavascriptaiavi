@@ -28,3 +28,20 @@ console.log(fin);
 for (let i = 0; i < fin.length; i++) {
     console.log(fin[i]);
 }
+
+
+let orgString = "You guys are doing great in learning JS";
+let newString = "";
+console.log("Length of orgString:", orgString.length);
+
+for (let i = 0; i < orgString.length; i++) {
+    console.log(orgString.charAt(i));
+}
+
+for(let i=orgString.length-1;i>=0;i--){
+    // console.log(orgString.charAt(i));
+    newString += orgString.charAt(i);
+
+}
+console.log("Reversed string:", newString);
+console.log("original string length:", orgString);
