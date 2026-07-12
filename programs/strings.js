@@ -44,4 +44,4 @@ for(let i=orgString.length-1;i>=0;i--){
 
 }
 console.log("Reversed string:", newString);
-console.log("original string length:", orgString);
+console.log("original string:", orgString);
