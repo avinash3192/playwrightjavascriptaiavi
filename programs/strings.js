@@ -1,4 +1,4 @@
-let student = "you guys as doing great in learning JS";
+let student = " you guys as doing great in learning JS ";
 console.log("Length of student string:", student.length);
 console.log("Uppercase:", student.toUpperCase());
 console.log("Lowercase:", student.toLowerCase());

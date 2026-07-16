@@ -1,5 +1,7 @@
 //Program 1 :WAP to print if given candidate is scored distinction or not 
 
+const console = require("node:console");
+
 let marksScored = 71;
 
 //using if-else statement
@@ -157,3 +159,144 @@ fruits.reverse();
 console.log("Descending Order:");
 console.log(fruits);
 
+
+//Program 10 - WAP to reverse a number
+let numbString = '6589';
+let revrString = '';
+for(let i=numbString.length-1;i>=0;i--){
+    revrString+=numbString.charAt(i);
+}
+console.log(`Reversal of number ${numbString} is ${revrString}`);
+
+//another approach by coverting a number to string again converting string back to number at the end after reversal
+let orgNum = 47585;
+let orgNumStr = orgNum.toString(); // let orgNumStre = String(orgNumStr); console.log(typeof orgNumStr);
+let revString = '';
+for(let i=orgNumStr.length-1;i>=0;i--){
+    revString+=orgNumStr.charAt(i);
+}
+console.log(`Reversal of number ${orgNum} is ${Number(revString)}`);
+
+
+//Program 12 - WAP to count number of vowels in given string
+let vowelString = "My name is avinash";
+let lowVowelString = vowelString.toLowerCase();
+let count = 0;
+console.log(`Given string in lowercase is: "${lowVowelString}"`);
+console.log(lowVowelString.length);
+for(let i = 0;i<lowVowelString.length;i++){
+// console.log(lowVowelString.charAt(i));
+let ch = lowVowelString.charAt(i);
+if(ch==='a' || ch==='e' || ch==='i' || ch==='o' || ch==='u'){
+count++;
+}
+}
+console.log(`Number of vowels in a given string: "${vowelString}" is ${count}`);
+
+//Instead of using charAt(), you can use bracket notation, which is more common in modern JavaScript
+let vowelString = "My name is avinash";
+let lowVowelString = vowelString.toLowerCase();
+let count = 0;
+console.log(`Given string in lowercase is: "${lowVowelString}"`);
+console.log(lowVowelString.length);
+for(let i = 0;i<lowVowelString.length;i++){
+// console.log(lowVowelString[i]);
+let ch = lowVowelString[i];
+if(ch==='a' || ch==='e' || ch==='i' || ch==='o' || ch==='u'){
+count++;
+}
+}
+console.log(`Number of vowels in a given string: "${vowelString}" is ${count}`);
+
+//An even cleaner approach using includes()
+let vowelString1 = "My name is avinash";
+let counter = 0;
+for(ch of vowelString1.toLowerCase()){
+   if("aeiou".includes(ch)) //checks whether the character stored in ch is present in the string "aeiou"
+    {
+counter++;
+   }
+}
+console.log(`Number of vowels in a given string: "${vowelString1}" is ${count}`);
+
+//another example
+let str = "Apple";
+
+for (let ch of str.toLowerCase()) {
+    if ("aeiou".includes(ch)) {
+        console.log(`${ch} is a vowel`);
+    } else {
+        console.log(`${ch} is not a vowel`);
+    }
+}
+
+//Program 13 - WAP to reverse a string and check if it is palindrome
+let originalString = "EyE";
+let inputString = originalString.toLowerCase();
+let reverseString = '';
+for(let i=inputString.length-1;i>=0;i--){
+   reverseString+=inputString[i];
+}
+console.log(`Reversed String: ${reverseString}`);
+if(inputString===reverseString)
+   console.log(`Given string: "${originalString}" is a Palindrome`);
+else 
+   console.log(`Given string: "${originalString}" is not a Palindrome`);
+
+
+//Program 14 : find max and min number in a given array
+let givenArray = [9,10,8,6,7,5,2,3,0,1,11];
+let max=givenArray[0];
+let min =givenArray[0];
+console.log(max);
+console.log(max);
+if (givenArray.length>0){
+    console.log(`Proceed to find max and min number in a given array`);
+for(let i=1;i<givenArray.length;i++){
+    console.log(givenArray[i]);
+    if(givenArray[i]>max){
+        max=givenArray[i];
+    }
+    else if(givenArray[i]<min){
+        min = givenArray[i];
+    }
+}
+console.log(`Max number is ${max} & Min number is ${min} in a given array`);
+}
+else console.log(`Given array is null`);
+
+//Improved version
+let givenArray = [9, 10, 8, 6, 7, 5, 2, 3, 0, 1, 11];
+
+if (givenArray.length > 0) {
+
+    let max = givenArray[0];
+    let min = givenArray[0];
+
+    console.log(`Initial Max = ${max}`);
+    console.log(`Initial Min = ${min}`);
+
+    console.log("Finding maximum and minimum values...");
+
+    for (let i = 1; i < givenArray.length; i++) {
+//This works because a number cannot be both greater than the current maximum and less than the current minimum at the same time.
+//However, using two independent if statements is a common practice because:
+// It makes the logic easier to read.
+// It remains correct even if the conditions become more complex in the future.
+// It avoids unnecessarily coupling the maximum and minimum checks.
+
+        if (givenArray[i] > max) {
+            max = givenArray[i];
+        }
+
+        if (givenArray[i] < min) {
+            min = givenArray[i];
+        }
+    }
+
+    console.log(`Maximum number = ${max}`);
+    console.log(`Minimum number = ${min}`);
+
+} else {
+    console.log("Given array is empty.");
+}
