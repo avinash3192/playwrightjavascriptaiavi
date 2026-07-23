@@ -207,4 +207,25 @@ v=c;
 w++;
 }
 
+//for....in loops
+let array = [21,22,23,24,25]
+for(let ch in array){
+    console.log(`${ch},  ${array[ch]}`);
+}
 
+
+let givenArray = [21,22,23,24,25]
+for(let ch=0;ch<givenArray.length;ch++){
+    console.log(`${ch},  ${givenArray[ch]}`);
+}
+
+
+// Values only
+for (let value of array) {
+    console.log(value);
+}
+
+// Index and value
+for (let i = 0; i < array.length; i++) {
+    console.log(i, array[i]);
+}

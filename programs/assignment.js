@@ -104,6 +104,20 @@ while(p <= 100) {
     p++;
 }   
 
+///Program 8: WAP to solve fizz buzz logic until 50
+for(let i =1;i<=50;i++){
+
+
+    if(i%3===0 && i%5===0){
+        console.log("Number", i, "is Fizz-Buzz");
+    }
+    else if (i%3===0){
+        console.log(`Number ${i} is Fizz`);
+    }
+    else if(i%5===0){
+        console.log("Number " + i + " is Buzz");
+    }
+}
 
 
 // Program 9 : WAP to sort an string array in alpabhetic order a-z and z-a
@@ -176,6 +190,16 @@ for(let i=orgNumStr.length-1;i>=0;i--){
     revString+=orgNumStr.charAt(i);
 }
 console.log(`Reversal of number ${orgNum} is ${Number(revString)}`);
+
+//another approach
+let numb = 6589;
+let reversed = numb
+    .toString()
+    .split('')
+    .reverse()
+    .join('');
+
+console.log(reversed); // "9856"
 
 
 //Program 12 - WAP to count number of vowels in given string
@@ -300,3 +324,194 @@ if (givenArray.length > 0) {
 } else {
     console.log("Given array is empty.");
 }
+
+//another approach -  find max and min number in a given array
+let givenArray = [9, 10, 8, 6, 7, 5, 2, 3, 0, 1, 11];
+
+if (givenArray.length > 0) {
+    // Using the spread operator to find max and min
+    // The spread operator (...) expands the elements of the array into individual arguments for the Math.max and Math.min functions.
+    // This is a concise and efficient way to find the maximum and minimum values in an array without needing to loop through it manually.
+    let max = Math.max(...givenArray);
+    let min = Math.min(...givenArray);
+    console.log(`Maximum number = ${max}`);
+    console.log(`Minimum number = ${min}`);
+}
+else {
+    console.log("Given array is empty.");
+}
+
+
+
+//Program 15 : WAP to find first non occurrence character in a given string
+let givenString = "hAvinash";
+let inptString = givenString.toLowerCase();
+console.log(`Given string in lowercase is: ${inptString}`);
+let nonOcurChar = "";
+for(let i=0;i<inptString.length;i++){
+   console.log(inptString.charAt(i)) ;
+   let ch = inptString.charAt(i);
+   if(inptString.indexOf(ch)===inptString.lastIndexOf(ch)){
+        nonOcurChar=ch;
+break;
+   }
+}
+if(nonOcurChar===""){
+    console.log(`There is no non-occurence character in a given string: ${givenString}`);
+    }
+   else{   console.log(`First non-occurring character in a given string is: ${nonOcurChar}`);
+}
+
+//WAP to find first occurrence character in a given string
+let givenString = "hAvinash";
+let inptString = givenString.toLowerCase();
+console.log(`Given string in lowercase is: ${inptString}`);
+let ocurChar = "";
+for(let i=0;i<inptString.length;i++){
+   console.log(inptString.charAt(i)) ;
+   let ch = inptString.charAt(i);
+   if(inptString.indexOf(ch)!==inptString.lastIndexOf(ch)){
+        ocurChar=ch;
+break;
+   }
+}
+if(ocurChar===""){
+    console.log(`There is no occurrence character in a given string: ${givenString}`);
+    }
+   else{   console.log(`First occurring character in a given string is: ${ocurChar}`);
+}
+
+//Program 16 : count number of consonants using functions
+//Function Declaration with parameters
+function consonantLetters(inptString){
+let countString = 0;
+for (let ch of inptString.toLowerCase()){
+    if(ch>='a' && ch<='z'&& !"aeiou".includes(ch)){
+        countString++;
+    }
+}
+console.log(`Function Declaration: Number of consonant  in a given string: "${inptString}" is ${countString}`);
+}
+
+consonantLetters("Virat's jersey number is 18!!");
+
+//Function Expression with parameters
+const consLet = function(inptString){
+    let countString = 0;
+for (let ch of inptString.toLowerCase()){
+    if(ch>='a' && ch<='z'&& !"aeiou".includes(ch)){
+        countString++;
+    }
+}
+console.log(`Function Expression: Number of consonant  in a given string: "${inptString}" is ${countString}`);
+}
+
+consLet("Mango");
+
+
+//Arrow Function with parameters
+const conLetrs = (inptString) =>{
+        let countString = 0;
+for (let ch of inptString.toLowerCase()){
+    if(ch>='a' && ch<='z'&& !"aeiou".includes(ch)){
+        countString++;
+    }
+}
+console.log(`Arrow Function: Number of consonant  in a given string: "${inptString}" is ${countString}`);
+}
+
+conLetrs("banana & Pineapple");
+
+//Function with parameters and returns a value
+function conLetString(inptString){
+    let countString = 0;
+for (let ch of inptString.toLowerCase()){
+    if(ch>='a' && ch<='z'&& !"aeiou".includes(ch)){
+        countString++;
+    }
+}
+return countString;
+}
+
+let  constLetCount = conLetString("India");
+console.log(`Function with parameters and returns a value: Number of consonant  in a given string is ${constLetCount}`);
+
+
+//Program 17 : remove duplicates from array
+//Method 1:Using Using a for......of loop
+let givenArray = [1,2,3,4,5,6,7,1,2,3,4,5,6,7,8,9,0];
+let uniqueArray = [];
+console.log(`Original array is ${givenArray}`);
+for (let ch of givenArray){
+    if (!(uniqueArray.includes(ch)))
+    {
+        uniqueArray.push(ch);
+    }
+}
+
+console.log(`Unique values from original array is ${uniqueArray}`);
+
+
+//Method 2: Using a for loop
+// Logic
+// Create an empty array uniqueArray.
+// Traverse the original array.
+// Check whether the current element already exists in uniqueArray.
+// If not present, add it.
+// After the loop, uniqueArray contains only unique elements.
+let orgArray = [1,2,3,4,5,6,7,3,2,4,6,7,6];
+console.log(`Original array is ${orgArray}`);
+let finalArray = [];
+for(let i=0;i<orgArray.length;i++){
+    if(!(finalArray.includes(orgArray[i]))){
+        finalArray.push(orgArray[i]);
+    }
+}
+console.log(`Unique values from original array is ${finalArray}`);
+
+// Method 3: Using Nested Loops (Without includes())
+let arr = [1, 2, 3, 2, 4, 5, 3, 6, 1];
+let uniqueArray = [];
+
+for (let i = 0; i < arr.length; i++) {
+
+    let isDuplicate = false;
+
+    for (let j = 0; j < uniqueArray.length; j++) {
+        if (arr[i] === uniqueArray[j]) {
+            isDuplicate = true;
+            break;
+        }
+    }
+
+    if (!isDuplicate) {
+        uniqueArray.push(arr[i]);
+    }
+}
+
+console.log(uniqueArray);
+
+
+//Method 3: Using Nested Loops (Without includes()) & for....of loops
+let inpArray = [1,2,3,4,5,6,7,8,9,0,1,2,4,5,6]
+let finalArray = [];
+console.log(`Input Array is ${inpArray}`);
+for(let ch of inpArray){
+    let isDuplicate = false;
+    for (let cj of finalArray){
+        if(ch===cj){
+            isDuplicate = true;
+            break;
+        }
+    }
+    if(!isDuplicate){
+        finalArray.push(ch)
+    }
+}
+console.log(finalArray);
+
+
+
+
+
+
