@@ -470,6 +470,35 @@ for(let i=0;i<orgArray.length;i++){
 console.log(`Unique values from original array is ${finalArray}`);
 
 // Method 3: Using Nested Loops (Without includes())
+
+// Logic
+// Create an empty array named uniqueArray to store unique elements.
+// Traverse each element of the original array using the outer for loop.
+// Assume the current element is not a duplicate by setting isDuplicate = false.
+// Use the inner for loop to compare the current element with every element already present in uniqueArray.
+// If a match is found:
+// Set isDuplicate = true.
+// Exit the inner loop using break.
+// After checking all elements:
+// If isDuplicate is still false, add the current element to uniqueArray.
+// Repeat the process until all elements are processed.
+// Finally, print uniqueArray, which contains only unique values.
+// Dry Run
+
+// Input Array
+
+// [1, 2, 3, 2, 4, 5, 3, 6, 1]
+// Iteration	CurrentElement(arr[i])	uniqueArray(Before)	Duplicate?	uniqueArray(After)
+// 1	1	[]	No	[1]
+// 2	2	[1]	No	[1, 2]
+// 3	3	[1, 2]	No	[1, 2, 3]
+// 4	2	[1, 2, 3]	Yes	[1, 2, 3]
+// 5	4	[1, 2, 3]	No	[1, 2, 3, 4]
+// 6	5	[1, 2, 3, 4]	No	[1, 2, 3, 4, 5]
+// 7	3	[1, 2, 3, 4, 5]	Yes	[1, 2, 3, 4, 5]
+// 8	6	[1, 2, 3, 4, 5]	No	[1, 2, 3, 4, 5, 6]
+// 9	1	[1, 2, 3, 4, 5, 6]	Yes	[1, 2, 3, 4, 5, 6]
+
 let arr = [1, 2, 3, 2, 4, 5, 3, 6, 1];
 let uniqueArray = [];
 

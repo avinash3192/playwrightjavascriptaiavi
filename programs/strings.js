@@ -5,7 +5,7 @@ console.log("Lowercase:", student.toLowerCase());
 console.log("Character at index 5:", student.charAt(5));
 console.log("Index of 'great':", student.indexOf("great"));
 console.log("Last index of 'g':", student.lastIndexOf("g"));
-console.log("Slice (0, 10):", student.slice(0, 10));
+console.log("Slice (0, 13):", student.slice(0, 13));
 console.log("Replace 'JS' with 'JavaScript':", student.replace("JS", "JavaScript"));
 console.log("Split by space:", student.split(" "));
 console.log("Split by 'g':", student.split("g"));
@@ -45,3 +45,11 @@ for(let i=orgString.length-1;i>=0;i--){
 }
 console.log("Reversed string:", newString);
 console.log("original string:", orgString);
+
+
+
+
+
+let strIn = "SeleniumJava"
+console.log("Substring (0, 10):", strIn.substring(0, 11)); // Ending index (not included)
+console.log("Substr (0, 10):", strIn.substr(0, 12)); // from 0th index, Number of characters to extract
