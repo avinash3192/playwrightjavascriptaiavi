@@ -36,3 +36,59 @@ console.log(oddNumb);
 }
 
 oddEvenArrays();
+
+
+//Arrow fuction
+const sqr = (num) => {
+console.log(num*num);
+return num*num;
+}
+
+console.log(sqr(2));
+
+
+//arrow function with implicit return
+const cube = (num) => num*num*num;
+
+console.log(cube(2));
+
+
+//arrow function with implicit return
+const subtra1 = (x,y) => x - y; // This is an arrow function with implicit return, it will return the difference of x and y to the caller
+console.log(subtra1(30, 20)); // Output: 10 (because the subtra1 function returns the difference of x and y)
+
+//return & print string
+const greet = () => "Hello World";
+
+console.log(greet());
+
+
+
+// //callback function example
+
+
+
+
+function avi(callback){
+
+setTimeout ( ()=> {const data = "You are my wife" ;
+callback(data)},2000);
+
+}
+
+
+function chai(dataPrint){
+console.log(dataPrint);
+}
+
+
+avi(chai);
+
+function printMemo(){
+    console.log("Hi Avinash !")
+}
+
+setTimeout(printMemo, 3000);
+
+
+
