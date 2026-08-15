@@ -499,6 +499,18 @@ console.log(`Unique values from original array is ${finalArray}`);
 // 8	6	[1, 2, 3, 4, 5]	No	[1, 2, 3, 4, 5, 6]
 // 9	1	[1, 2, 3, 4, 5, 6]	Yes	[1, 2, 3, 4, 5, 6]
 
+// if (condition) {
+//     // Executes only when condition is true
+// }
+// If the condition is false, JavaScript completely skips everything inside the braces {}.
+// isDuplicate = false → !false = true → element is added
+// isDuplicate = true → !true = false → element is not added
+
+// if (false) {
+//     uniqueArray.push(arr[i]);
+// }
+// Since the condition is false, the code inside the if block is skipped.
+
 let arr = [1, 2, 3, 2, 4, 5, 3, 6, 1];
 let uniqueArray = [];
 
