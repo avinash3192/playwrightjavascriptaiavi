@@ -9,11 +9,12 @@
     "all": "npx playwright test",
     "regression": "npx playwright test --grep @regression",
     "bdd": "npx cucumber-js"
+    // in CMD it should be run as "npm run test:cucumber" to run the cucumber tests
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "devDependencies": {
     "@cucumber/cucumber": "^13.2.1",
     "@playwright/test": "^1.61.1",

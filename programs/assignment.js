@@ -1,6 +1,6 @@
 //Program 1 :WAP to print if given candidate is scored distinction or not 
 
-const console = require("node:console");
+// const console = require("node:console");
 
 let marksScored = 71;
 
@@ -273,7 +273,7 @@ let givenArray = [9,10,8,6,7,5,2,3,0,1,11];
 let max=givenArray[0];
 let min =givenArray[0];
 console.log(max);
-console.log(max);
+console.log(min);
 if (givenArray.length>0){
     console.log(`Proceed to find max and min number in a given array`);
 for(let i=1;i<givenArray.length;i++){
@@ -439,17 +439,17 @@ console.log(`Function with parameters and returns a value: Number of consonant  
 
 //Program 17 : remove duplicates from array
 //Method 1:Using Using a for......of loop
-let givenArray = [1,2,3,4,5,6,7,1,2,3,4,5,6,7,8,9,0];
-let uniqueArray = [];
-console.log(`Original array is ${givenArray}`);
-for (let ch of givenArray){
-    if (!(uniqueArray.includes(ch)))
+let givenArray1 = [1,2,3,4,5,6,7,1,2,3,4,5,6,7,8,9,0];
+let uniqueArray1 = [];
+console.log(`Original array is ${givenArray1}`);
+for (let ch of givenArray1){
+    if (!(uniqueArray1.includes(ch)))
     {
-        uniqueArray.push(ch);
+        uniqueArray1.push(ch);
     }
 }
 
-console.log(`Unique values from original array is ${uniqueArray}`);
+console.log(`Unique values from original array is ${uniqueArray1}`);
 
 
 //Method 2: Using a for loop
@@ -459,15 +459,15 @@ console.log(`Unique values from original array is ${uniqueArray}`);
 // Check whether the current element already exists in uniqueArray.
 // If not present, add it.
 // After the loop, uniqueArray contains only unique elements.
-let orgArray = [1,2,3,4,5,6,7,3,2,4,6,7,6];
+let orgArray1 = [1,2,3,4,5,6,7,3,2,4,6,7,6];
 console.log(`Original array is ${orgArray}`);
-let finalArray = [];
-for(let i=0;i<orgArray.length;i++){
-    if(!(finalArray.includes(orgArray[i]))){
-        finalArray.push(orgArray[i]);
+let finalArray2 = [];
+for(let i=0;i<orgArray1.length;i++){
+    if(!(finalArray2.includes(orgArray1[i]))){
+        finalArray2.push(orgArray1[i]);
     }
 }
-console.log(`Unique values from original array is ${finalArray}`);
+console.log(`Unique values from original array is ${finalArray2}`);
 
 // Method 3: Using Nested Loops (Without includes())
 
@@ -552,7 +552,45 @@ for(let ch of inpArray){
 console.log(finalArray);
 
 
+//Program 19 - find second largest element in an array …
+const numbers = [10, 5, 20, 8, 15,20,10]
+//-Infinity is a JavaScript special value that means negative infinity.
+let largest = -Infinity;
+let secondLargest = -Infinity;
+// let largest = 0;
+// let secondLargest = 0;
+for(let num of numbers){
+if(num>largest)
+    {
+        secondLargest=largest;
+        largest=num;
 
+    }
+    else if (num>secondLargest && num!==largest)
+        {
+            secondLargest = num;
+        }
+}
+console.log(`largest number = ${largest}`);
+console.log(`second largest number = ${secondLargest}`);
 
+//Program 19 - find second smallest element in an array …
+const numbers = [10, 5, 20, 8, 15,20,10,1,2]
+//Infinity is a JavaScript special value that means positive infinity.
+let smallest = Infinity;
+let secondSmallest = Infinity;
+for(let num=0;num<numbers.length;num++){
+if(numbers[num]<smallest)
+    {
+        secondSmallest=smallest;
+        smallest=numbers[num];
 
+    }
+    else if (numbers[num]<secondSmallest && numbers[num]!==smallest)
+        {
+            secondSmallest = numbers[num];
+        }
+}
+console.log(`smallest number = ${smallest}`);
+console.log(`second smallest number = ${secondSmallest}`);
 
