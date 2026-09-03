@@ -594,3 +594,194 @@ if(numbers[num]<smallest)
 console.log(`smallest number = ${smallest}`);
 console.log(`second smallest number = ${secondSmallest}`);
 
+//Program 20 - check if given two word is anagram
+let word1 = 'listen ';
+let word2 = ' silent';
+let sortedWord1 = word1.trim().toLowerCase().split('').sort().join('');
+let sortedWord2= word2.trim().toLowerCase().split('').sort().join('');
+console.log(`sortedWord1: ${sortedWord1}`);
+console.log(`sortedWord2: ${sortedWord2}`);
+if(word1.length === word2.length){
+    console.log(`word1 lenghth is: ${word1.toLowerCase().length}`);
+    console.log(`word1 lenghth is: ${word2.toLowerCase().length}`);
+    console.log(`Length check is pass`);
+    if(sortedWord1===sortedWord2){
+        console.log(`Given Two words are anagrams`);
+    }
+    else{
+        console.log(`sorted lists doesn't match.Hence given two words are not anagrams `);;
+    }
+}else{
+    console.log(`Words length don't match. Hence not eligible for anagrams`);
+}
+
+
+//Using Functions
+function anagrams() {
+    let word1 = 'listen ';
+let word2 = ' silent';
+let sortedWord1 = word1.trim().toLowerCase().split('').sort().join('');
+let sortedWord2= word2.trim().toLowerCase().split('').sort().join('');
+console.log(`sortedWord1: ${sortedWord1}`);
+console.log(`sortedWord2: ${sortedWord2}`);
+if(word1.length === word2.length){
+    console.log(`word1 lenghth is: ${word1.toLowerCase().length}`);
+    console.log(`word1 lenghth is: ${word2.toLowerCase().length}`);
+    console.log(`Length check is pass`);
+    if(sortedWord1===sortedWord2){
+        console.log(`Given Two words are anagrams`);
+    }
+    else{
+        console.log(`sorted lists doesn't match.Hence given two words are not anagrams `);;
+    }
+}else{
+    console.log(`Words length don't match. Hence not eligible for anagrams`);
+}
+
+
+}
+
+anagrams();
+
+//Using class, methods & constructors
+//Wrap the logic inside a dedicated class method (e.g., check()) and use this to reference the class properties.
+class Anagrams {
+    constructor(word1, word2) {
+        // Fix: Clean the strings right away during assignment
+        this.word1 = word1.trim().toLowerCase();
+        this.word2 = word2.trim().toLowerCase();
+    }
+
+    // Fix: Move all logic into a class method
+    check() {
+        let sortedWord1 = this.word1.split('').sort().join('');
+        let sortedWord2 = this.word2.split('').sort().join('');
+
+        console.log(`sortedWord1: ${sortedWord1}`);
+        console.log(`sortedWord2: ${sortedWord2}`);
+
+        // Fix: Use 'this.' to access class properties
+        if (this.word1.length === this.word2.length) {
+            console.log(`word1 length is: ${this.word1.length}`);
+            console.log(`word2 length is: ${this.word2.length}`);
+            console.log(`Length check passed`);
+
+            if (sortedWord1 === sortedWord2) {
+                console.log(`Given two words are anagrams`);
+                return true;
+            } else {
+                console.log(`Sorted lists don't match. Hence given two words are not anagrams`);
+                return false;
+            }
+        } else {
+            console.log(`Word lengths don't match. Hence not eligible for anagrams`);
+            return false;
+        }
+    }
+}
+
+// How to use it:
+const checker = new Anagrams('SIlENTe', 'listene');
+checker.check(); 
+
+
+//Using Function expression
+class Anagrams {
+    constructor(word1,word2) {
+        this.word1 = word1;
+        this.word2 = word2;
+    }
+    anagramCheck = function(){
+        let sortedWord1 = this.word1.trim().toLowerCase().split('').sort().join('');
+        let sortedWord2 = this.word2.trim().toLowerCase().split('').sort().join('');
+        console.log(`sortedWord1: ${sortedWord1}`);
+        console.log(`sortedWord2: ${sortedWord2}`);
+        if (this.word1.trim().length === this.word2.trim().length) {
+            console.log(`word1 length is: ${this.word1.trim().length}`);
+            console.log(`word2 length is: ${this.word2.trim().length}`);
+            console.log(`Length check passed`);
+            if (sortedWord1 === sortedWord2) {
+                console.log(`Given two words are anagrams`);
+            } else {
+                console.log(`Sorted lists don't match. Hence, given two words are not anagrams`);
+            }
+        } else {
+            console.log(`Words lengths don't match. Hence, not eligible for anagrams`);
+        }
+    }
+}
+
+let anagCheck = new Anagrams('listen ',' silent');
+
+
+//Using Arrow functions & return type
+
+class Anagrams {
+    constructor(word1,word2) {
+        this.word1 = word1;
+        this.word2 = word2;
+    }
+    anagramCheck = ()=>{
+        let sortedWord1 = this.word1.trim().toLowerCase().split('').sort().join('');
+        let sortedWord2 = this.word2.trim().toLowerCase().split('').sort().join('');
+        console.log(`sortedWord1: ${sortedWord1}`);
+        console.log(`sortedWord2: ${sortedWord2}`);
+        if (this.word1.trim().length === this.word2.trim().length) {
+            console.log(`word1 length is: ${this.word1.trim().length}`);
+            console.log(`word2 length is: ${this.word2.trim().length}`);
+            console.log(`Length check passed`);
+            if (sortedWord1 === sortedWord2) {
+                console.log(`Given two words are anagrams`);
+                return "Given two words are anagrams";
+            } else {
+                console.log(`Sorted lists don't match. Hence, given two words are not anagrams`);
+                return "Given two words are not anagrams";
+            }
+        } else {
+            console.log(`Words lengths don't match. Hence, not eligible for anagrams`);
+            return "Given two words are not anagrams";
+        }
+    }
+}
+
+let anagCheck = new Anagrams('listen ',' silent');
+console.log(`From Method call:${anagCheck.anagramCheck()}`);
+
+//Program 21: WAP to find occurrence of first non repeating character in an array
+let givenArray = ['A','B','C','i','j','k','b','c','a','I','j','K','A','B'];
+let nonOccChar = "";
+
+console.log(`Given Array is: ${givenArray}`);
+
+for(let arr of givenArray){
+    if(givenArray.indexOf(arr) === givenArray.lastIndexOf(arr)){
+        nonOccChar = arr;
+        break; // Stops immediately at the first unique character ('C')
+    }
+}
+
+if(nonOccChar === ""){
+    console.log(`There is no unique character in the given array.`);
+} else {   
+    console.log(`First non-repeating character in the given array is: ${nonOccChar}`);
+}
+
+
+//WAP to find occurrence of first repeating character in an array
+let givenArray = ['A','B','C','i','j','k','b','c','a','I','j','K','C'];
+let nonOccChar = "";
+
+console.log(`Given Array is: ${givenArray}`);
+
+for(let arr of givenArray){
+    if(givenArray.indexOf(arr) == givenArray.lastIndexOf(arr)){
+        nonOccChar = arr;
+        break; // Stops immediately at the first unique character ('C')
+    }
+}
+
+if(nonOccChar === ""){
+    console.log(`There is no repeating character in the given array.`);
+} else {   
+    console.log(`First repeating character in the given array is: ${nonOccChar}`);
+}

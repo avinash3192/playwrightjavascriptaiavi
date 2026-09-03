@@ -10,7 +10,7 @@ import { CheckoutComplete } from '../POM/CheckoutComplete';
 
 console.log("BaseUrl:", process.env.BaseUrl);
 
-test("TC001: Saucedmo end to end test using playwright", async ({ page }) => {
+test.only("TC001: Saucedmo end to end test using playwright", async ({ page }) => {
      // initialize the page objects 
      let loginPage = new LoginPage(page);
      let inventoryPage = new InventoryPage(page);

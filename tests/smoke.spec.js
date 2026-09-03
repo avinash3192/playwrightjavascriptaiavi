@@ -1030,7 +1030,7 @@ test("@smoke TC044: Handling vertical scroll or scroll up/down in playwright usi
 })
 
 
-test.only("TC045: Handling horizontal scroll from left to right in playwright using page.mouse.wheel function", async({page})=>{
+test("TC045: Handling horizontal scroll from left to right in playwright using page.mouse.wheel function", async({page})=>{
     await page.goto("data:text/html,<html><body style='margin:0'><div style='width:2000px;height:200px;background:linear-gradient(to right, red, blue);'></div></body></html>");
      await page.waitForTimeout(3000);
    //Scroll right 1000 px

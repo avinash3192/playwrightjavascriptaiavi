@@ -53,3 +53,22 @@ console.log("original string:", orgString);
 let strIn = "SeleniumJava"
 console.log("Substring (0, 10):", strIn.substring(0, 11)); // Ending index (not included)
 console.log("Substr (0, 10):", strIn.substr(0, 12)); // from 0th index, Number of characters to extract
+
+
+let word = "SeleniumJava";
+console.log(`word: ${word}`);
+console.log(`word.length: ${word.length}`);
+console.log(`sorted word: ${word.sort()}`); // This will throw an error because strings do not have a sort method
+console.log(`word sort: ${word.split('').sort().join('')}`); // This will sort the characters in the string and join them back together
+// word.split(''): Breaks the string into an array of single characters..
+// sort(): Arranges those characters in alphabetical (ASCII) order..
+// join(''): Merges the sorted character array back into a single string.
+// console.log(...): Prints the labeled result to the console using a template literal.
+// Output: "aeeijlmnSuv"
+
+
+
+let array = ["Selenium", "Java", "Python", "C++"];
+console.log(`array: ${array}`);
+console.log(`array.length: ${array.length}`);
+console.log(`sorted array: ${array.sort()}`); // This will sort the array in place and return the sorted array
