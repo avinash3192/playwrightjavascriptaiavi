@@ -1,0 +1,11 @@
+2026-09-08 11:15:13 [INFO]: Test suite execution started
+2026-09-08 11:15:14 [INFO]: Test case execution started
+2026-09-08 11:15:15 [INFO]: we are using playwright inbuilt locators
+2026-09-08 11:15:15 [INFO]: -------getByText------
+2026-09-08 11:15:15 [INFO]: --------getByPlaceholder---------
+2026-09-08 11:15:15 [INFO]: -----getByRole--------
+2026-09-08 11:15:20 [INFO]: -----getByTestId--------
+2026-09-08 11:15:20 [INFO]: -----getByRole----------
+2026-09-08 11:15:20 [INFO]: -----getByTestId--------
+2026-09-08 11:15:21 [INFO]: Test case execution completed
+2026-09-08 11:15:21 [INFO]: Test case execution completed

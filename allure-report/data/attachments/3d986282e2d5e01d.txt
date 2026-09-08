@@ -1,0 +1,13 @@
+2026-09-08 11:14:15 [INFO]: Test case execution started
+Total number of rows in the table are 7
+Total number of rows in the table are : 7
+Total number of rows in the table are : 7
+Total number of updated rows in the table are 6
+updated rowText from 5th for loop: Maria Anders
+updated rowText from 5th for loop: Francisco Chang
+updated rowText from 5th for loop: Roland Mendel
+updated rowText from 5th for loop: Helen Bennett
+updated rowText from 5th for loop: Yoshi Tannamuri
+updated rowText from 5th for loop: Giovanni Rovelli
+2026-09-08 11:14:17 [INFO]: Test case execution completed
+2026-09-08 11:14:17 [INFO]: Test case execution completed

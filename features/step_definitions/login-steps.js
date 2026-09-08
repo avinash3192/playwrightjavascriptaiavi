@@ -6,6 +6,8 @@ import {LoginPage} from '../../POM/LoginPage.js';
 
 setDefaultTimeout(20000);
 
+
+//from Cucumber library
 After(async function(){
     if(this.browser){
         await this.browser.close();
@@ -42,11 +44,6 @@ When('I enter valid invalid username',async function(){
     await this.loginPage.InvalidUsername('invalid_user')
 });
 
-Then('user should be redirected to saucedemo inventory page', async function(){
-    // await this.page.waitForURL(/.*\/inventory\.html/, { timeout: 15000 });
-    await this.page.waitForURL('https://www.saucedemo.com/inventory.html');
-await this.page.waitForTimeout(5000);
-});
 
 
 Then('user should get error message', async function(){

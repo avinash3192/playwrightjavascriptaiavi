@@ -1,0 +1,9 @@
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:09 [INFO]: Test case execution started
+2026-09-08 11:14:10 [INFO]: our first log for our playwright test with info level
+2026-09-08 11:14:10 [WARN]: our first log for our playwright test with warn level
+2026-09-08 11:14:10 [ERROR]: our first log for our playwright test with error level
+2026-09-08 11:14:10 [DEBUG]: our first log for our playwright test with debug level
+2026-09-08 11:14:11 [INFO]: TC001 is excecuted successfully
+2026-09-08 11:14:11 [INFO]: Test case execution completed
+2026-09-08 11:14:11 [INFO]: Test case execution completed

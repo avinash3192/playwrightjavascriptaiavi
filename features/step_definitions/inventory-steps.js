@@ -1,9 +1,13 @@
 import {InventoryPage} from '../../POM/InventoryPage.js';
 import {After,Given,When,Then,setDefaultTimeout} from '@cucumber/cucumber';
 import {expect } from '@playwright/test';
-import playwright from 'playwright';
 import 'dotenv/config';
 
+Then('user should be redirected to saucedemo inventory page', async function(){
+    // await this.page.waitForURL(/.*\/inventory\.html/, { timeout: 15000 });
+    await this.page.waitForURL('https://www.saucedemo.com/inventory.html');
+await this.page.waitForTimeout(5000);
+});
 
 Then('swag labs app logo to be visible', async function(){
 this.inventoryPage = new InventoryPage(this.page);

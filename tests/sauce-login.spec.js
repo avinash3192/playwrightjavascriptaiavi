@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 
-test('Sauce Demo login test', async ({ page }) => {
+test.only('Sauce Demo login test', async ({ page }) => {
   const jsonPath = path.resolve(__dirname, '../testdata/sauce-demo-user.json');
   const userData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 

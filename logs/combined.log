@@ -995,3 +995,635 @@
 2026-09-04 15:20:41 [INFO]: Navigating to login page
 2026-09-04 15:20:42 [INFO]: Navigating to login page
 2026-09-04 15:20:44 [INFO]: Navigating to login page
+2026-09-06 10:03:25 [INFO]: Test suite execution started
+2026-09-06 10:03:25 [INFO]: Test suite execution started
+2026-09-06 10:03:33 [INFO]: Test case execution started
+2026-09-06 10:03:33 [INFO]: Navigating to login page
+2026-09-06 10:03:33 [INFO]: Test case execution started
+2026-09-06 10:03:40 [INFO]: Test case execution completed
+2026-09-06 10:03:40 [INFO]: Test case execution completed
+2026-09-06 10:03:41 [INFO]: Navigating to login page
+2026-09-06 10:03:42 [INFO]: Test suite execution completed
+2026-09-06 10:03:42 [INFO]: Test suite execution completed
+2026-09-06 10:03:46 [INFO]: Test suite execution started
+2026-09-06 10:03:48 [INFO]: Test case execution started
+2026-09-06 10:03:49 [INFO]: Test suite execution started
+2026-09-06 10:03:49 [INFO]: Test case execution completed
+2026-09-06 10:03:49 [INFO]: Test case execution completed
+2026-09-06 10:03:51 [INFO]: Test suite execution completed
+2026-09-06 10:03:51 [INFO]: Test suite execution completed
+2026-09-06 10:03:54 [INFO]: Test case execution completed
+2026-09-06 10:03:54 [INFO]: Test case execution completed
+2026-09-06 10:03:55 [INFO]: Test suite execution completed
+2026-09-06 10:03:55 [INFO]: Test suite execution completed
+2026-09-06 10:03:57 [INFO]: Test case execution started
+2026-09-06 10:04:03 [INFO]: Navigating to login page
+2026-09-06 10:04:09 [INFO]: Test suite execution started
+2026-09-06 10:04:09 [INFO]: Test suite execution started
+2026-09-06 10:04:10 [INFO]: Test case execution started
+2026-09-06 10:04:10 [INFO]: Test case execution started
+2026-09-06 10:04:14 [INFO]: Test case execution completed
+2026-09-06 10:04:14 [INFO]: Test case execution completed
+2026-09-06 10:04:15 [INFO]: Test suite execution completed
+2026-09-06 10:04:15 [INFO]: Test suite execution completed
+2026-09-06 10:04:16 [INFO]: Test case execution completed
+2026-09-06 10:04:16 [INFO]: Test case execution completed
+2026-09-06 10:04:17 [INFO]: Test suite execution completed
+2026-09-06 10:04:17 [INFO]: Test suite execution completed
+2026-09-06 10:04:26 [INFO]: Test case execution completed
+2026-09-06 10:04:26 [INFO]: Test case execution completed
+2026-09-06 10:04:27 [INFO]: Test suite execution completed
+2026-09-06 10:04:27 [INFO]: Test suite execution completed
+2026-09-06 10:05:53 [INFO]: Test suite execution started
+2026-09-06 10:05:53 [INFO]: Test suite execution started
+2026-09-06 10:05:57 [INFO]: Test case execution started
+2026-09-06 10:05:57 [INFO]: Test case execution started
+2026-09-06 10:05:58 [INFO]: Navigating to login page
+2026-09-06 10:05:59 [INFO]: Login successful
+2026-09-06 10:05:59 [INFO]: Getting inventory items count
+2026-09-06 10:05:59 [INFO]: Clicked on first item add to cart button
+2026-09-06 10:05:59 [INFO]: Clicked on cart link
+2026-09-06 10:05:59 [INFO]: Clicked on checkout button
+2026-09-06 10:05:59 [INFO]: Entered first name
+2026-09-06 10:05:59 [INFO]: Entered last name
+2026-09-06 10:05:59 [INFO]: Entered postal code
+2026-09-06 10:05:59 [INFO]: Clicked on continue button
+2026-09-06 10:05:59 [INFO]: Clicked on finish button
+2026-09-06 10:05:59 [INFO]: Getting complete header text
+2026-09-06 10:05:59 [INFO]: Getting checkout complete text
+2026-09-06 10:05:59 [INFO]: Checkout complete verified
+2026-09-06 10:06:04 [INFO]: Test case execution completed
+2026-09-06 10:06:04 [INFO]: Test case execution completed
+2026-09-06 10:06:05 [INFO]: Test suite execution completed
+2026-09-06 10:06:05 [INFO]: Test suite execution completed
+2026-09-06 10:06:13 [INFO]: Test case execution completed
+2026-09-06 10:06:13 [INFO]: Test case execution completed
+2026-09-06 10:06:14 [INFO]: Test suite execution completed
+2026-09-06 10:06:14 [INFO]: Test suite execution completed
+2026-09-07 20:38:31 [INFO]: Test suite execution started
+2026-09-07 20:38:31 [INFO]: Test suite execution started
+2026-09-07 20:38:38 [INFO]: Test case execution started
+2026-09-07 20:38:38 [INFO]: Test case execution started
+2026-09-07 20:38:38 [INFO]: Navigating to login page
+2026-09-07 20:38:44 [INFO]: Test case execution completed
+2026-09-07 20:38:44 [INFO]: Test case execution completed
+2026-09-07 20:38:44 [INFO]: Test suite execution completed
+2026-09-07 20:38:44 [INFO]: Test suite execution completed
+2026-09-07 20:38:54 [INFO]: Test case execution completed
+2026-09-07 20:38:54 [INFO]: Test case execution completed
+2026-09-07 20:38:54 [INFO]: Test suite execution completed
+2026-09-07 20:38:54 [INFO]: Test suite execution completed
+2026-09-07 20:44:33 [INFO]: Test suite execution started
+2026-09-07 20:44:33 [INFO]: Test suite execution started
+2026-09-07 20:44:36 [INFO]: Test case execution started
+2026-09-07 20:44:37 [INFO]: Test case execution started
+2026-09-07 20:44:38 [INFO]: Navigating to login page
+2026-09-07 20:44:39 [INFO]: Login successful
+2026-09-07 20:44:39 [INFO]: Getting inventory items count
+2026-09-07 20:44:39 [INFO]: Clicked on first item add to cart button
+2026-09-07 20:44:39 [INFO]: Clicked on cart link
+2026-09-07 20:44:39 [INFO]: Clicked on checkout button
+2026-09-07 20:44:39 [INFO]: Entered first name
+2026-09-07 20:44:39 [INFO]: Entered last name
+2026-09-07 20:44:39 [INFO]: Entered postal code
+2026-09-07 20:44:39 [INFO]: Clicked on continue button
+2026-09-07 20:44:39 [INFO]: Clicked on finish button
+2026-09-07 20:44:39 [INFO]: Getting complete header text
+2026-09-07 20:44:39 [INFO]: Getting checkout complete text
+2026-09-07 20:44:39 [INFO]: Checkout complete verified
+2026-09-07 20:44:45 [INFO]: Test case execution completed
+2026-09-07 20:44:45 [INFO]: Test case execution completed
+2026-09-07 20:44:45 [INFO]: Test suite execution completed
+2026-09-07 20:44:45 [INFO]: Test suite execution completed
+2026-09-07 20:44:54 [INFO]: Test case execution completed
+2026-09-07 20:44:54 [INFO]: Test case execution completed
+2026-09-07 20:44:54 [INFO]: Test suite execution completed
+2026-09-07 20:44:54 [INFO]: Test suite execution completed
+2026-09-07 20:47:41 [INFO]: Test suite execution started
+2026-09-07 20:47:41 [INFO]: Test suite execution started
+2026-09-07 20:47:45 [INFO]: Test case execution started
+2026-09-07 20:47:46 [INFO]: Test case execution started
+2026-09-07 20:47:46 [INFO]: Navigating to login page
+2026-09-07 20:47:47 [INFO]: Login successful
+2026-09-07 20:47:47 [INFO]: Getting inventory items count
+2026-09-07 20:47:47 [INFO]: Clicked on first item add to cart button
+2026-09-07 20:47:47 [INFO]: Clicked on cart link
+2026-09-07 20:47:47 [INFO]: Clicked on checkout button
+2026-09-07 20:47:47 [INFO]: Entered first name
+2026-09-07 20:47:47 [INFO]: Entered last name
+2026-09-07 20:47:47 [INFO]: Entered postal code
+2026-09-07 20:47:47 [INFO]: Clicked on continue button
+2026-09-07 20:47:47 [INFO]: Clicked on finish button
+2026-09-07 20:47:47 [INFO]: Getting complete header text
+2026-09-07 20:47:47 [INFO]: Getting checkout complete text
+2026-09-07 20:47:47 [INFO]: Checkout complete verified
+2026-09-07 20:47:53 [INFO]: Test case execution completed
+2026-09-07 20:47:53 [INFO]: Test case execution completed
+2026-09-07 20:47:53 [INFO]: Test suite execution completed
+2026-09-07 20:47:53 [INFO]: Test suite execution completed
+2026-09-07 20:48:01 [INFO]: Test case execution completed
+2026-09-07 20:48:01 [INFO]: Test case execution completed
+2026-09-07 20:48:02 [INFO]: Test suite execution completed
+2026-09-07 20:48:02 [INFO]: Test suite execution completed
+2026-09-07 20:50:44 [INFO]: Test suite execution started
+2026-09-07 20:50:44 [INFO]: Test suite execution started
+2026-09-07 20:50:48 [INFO]: Test case execution started
+2026-09-07 20:50:49 [INFO]: Navigating to login page
+2026-09-07 20:50:50 [INFO]: Test case execution started
+2026-09-07 20:50:50 [INFO]: Login successful
+2026-09-07 20:50:50 [INFO]: Getting inventory items count
+2026-09-07 20:50:51 [INFO]: Clicked on first item add to cart button
+2026-09-07 20:50:51 [INFO]: Clicked on cart link
+2026-09-07 20:50:51 [INFO]: Clicked on checkout button
+2026-09-07 20:50:51 [INFO]: Entered first name
+2026-09-07 20:50:51 [INFO]: Entered last name
+2026-09-07 20:50:51 [INFO]: Entered postal code
+2026-09-07 20:50:51 [INFO]: Clicked on continue button
+2026-09-07 20:50:51 [INFO]: Clicked on finish button
+2026-09-07 20:50:51 [INFO]: Getting complete header text
+2026-09-07 20:50:51 [INFO]: Getting checkout complete text
+2026-09-07 20:50:51 [INFO]: Checkout complete verified
+2026-09-07 20:50:57 [INFO]: Test case execution completed
+2026-09-07 20:50:57 [INFO]: Test case execution completed
+2026-09-07 20:50:58 [INFO]: Test suite execution completed
+2026-09-07 20:50:58 [INFO]: Test suite execution completed
+2026-09-07 20:51:04 [INFO]: Test case execution completed
+2026-09-07 20:51:04 [INFO]: Test case execution completed
+2026-09-07 20:51:05 [INFO]: Test suite execution completed
+2026-09-07 20:51:05 [INFO]: Test suite execution completed
+2026-09-07 20:57:13 [INFO]: Test suite execution started
+2026-09-07 20:57:17 [INFO]: Navigating to login page
+2026-09-07 20:57:18 [INFO]: Login successful
+2026-09-07 20:57:18 [INFO]: Getting inventory items count
+2026-09-07 20:57:19 [INFO]: Clicked on first item add to cart button
+2026-09-07 20:57:19 [INFO]: Clicked on cart link
+2026-09-07 20:57:19 [INFO]: Clicked on checkout button
+2026-09-07 20:57:19 [INFO]: Entered first name
+2026-09-07 20:57:19 [INFO]: Entered last name
+2026-09-07 20:57:19 [INFO]: Entered postal code
+2026-09-07 20:57:20 [INFO]: Test case execution started
+2026-09-07 20:57:20 [INFO]: Clicked on continue button
+2026-09-07 20:57:20 [INFO]: Clicked on finish button
+2026-09-07 20:57:20 [INFO]: Getting complete header text
+2026-09-07 20:57:20 [INFO]: Getting checkout complete text
+2026-09-07 20:57:20 [INFO]: Checkout complete verified
+2026-09-07 20:57:20 [INFO]: Test suite execution started
+2026-09-07 20:57:21 [INFO]: Test case execution started
+2026-09-07 20:57:27 [INFO]: Test case execution completed
+2026-09-07 20:57:27 [INFO]: Test case execution completed
+2026-09-07 20:57:27 [INFO]: Test suite execution completed
+2026-09-07 20:57:27 [INFO]: Test suite execution completed
+2026-09-07 20:57:37 [INFO]: Test case execution completed
+2026-09-07 20:57:37 [INFO]: Test case execution completed
+2026-09-07 20:57:37 [INFO]: Test suite execution completed
+2026-09-07 20:57:37 [INFO]: Test suite execution completed
+2026-09-07 20:59:32 [INFO]: Test suite execution started
+2026-09-07 20:59:32 [INFO]: Test suite execution started
+2026-09-07 20:59:37 [INFO]: Navigating to login page
+2026-09-07 20:59:38 [INFO]: Test case execution started
+2026-09-07 20:59:38 [INFO]: Login successful
+2026-09-07 20:59:38 [INFO]: Getting inventory items count
+2026-09-07 20:59:39 [INFO]: Clicked on first item add to cart button
+2026-09-07 20:59:39 [INFO]: Clicked on cart link
+2026-09-07 20:59:39 [INFO]: Clicked on checkout button
+2026-09-07 20:59:39 [INFO]: Entered first name
+2026-09-07 20:59:39 [INFO]: Entered last name
+2026-09-07 20:59:39 [INFO]: Entered postal code
+2026-09-07 20:59:39 [INFO]: Test case execution started
+2026-09-07 20:59:39 [INFO]: Clicked on continue button
+2026-09-07 20:59:39 [INFO]: Clicked on finish button
+2026-09-07 20:59:39 [INFO]: Getting complete header text
+2026-09-07 20:59:39 [INFO]: Getting checkout complete text
+2026-09-07 20:59:39 [INFO]: Checkout complete verified
+2026-09-07 20:59:47 [INFO]: Test case execution completed
+2026-09-07 20:59:47 [INFO]: Test case execution completed
+2026-09-07 20:59:47 [INFO]: Test suite execution completed
+2026-09-07 20:59:47 [INFO]: Test suite execution completed
+2026-09-07 20:59:54 [INFO]: Test case execution completed
+2026-09-07 20:59:54 [INFO]: Test case execution completed
+2026-09-07 20:59:55 [INFO]: Test suite execution completed
+2026-09-07 20:59:55 [INFO]: Test suite execution completed
+2026-09-07 21:01:18 [INFO]: Navigating to login page
+2026-09-07 21:01:20 [INFO]: Login successful
+2026-09-07 21:01:20 [INFO]: Getting inventory items count
+2026-09-07 21:01:20 [INFO]: Clicked on first item add to cart button
+2026-09-07 21:01:20 [INFO]: Clicked on cart link
+2026-09-07 21:01:20 [INFO]: Clicked on checkout button
+2026-09-07 21:01:20 [INFO]: Entered first name
+2026-09-07 21:01:20 [INFO]: Entered last name
+2026-09-07 21:01:20 [INFO]: Entered postal code
+2026-09-07 21:01:20 [INFO]: Clicked on continue button
+2026-09-07 21:01:20 [INFO]: Clicked on finish button
+2026-09-07 21:01:21 [INFO]: Getting complete header text
+2026-09-07 21:01:21 [INFO]: Getting checkout complete text
+2026-09-07 21:01:21 [INFO]: Checkout complete verified
+2026-09-07 21:01:21 [INFO]: Test suite execution started
+2026-09-07 21:01:22 [INFO]: Test case execution started
+2026-09-07 21:01:23 [INFO]: Test suite execution started
+2026-09-07 21:01:25 [INFO]: Test case execution started
+2026-09-07 21:01:30 [INFO]: Test case execution completed
+2026-09-07 21:01:30 [INFO]: Test case execution completed
+2026-09-07 21:01:31 [INFO]: Test suite execution completed
+2026-09-07 21:01:31 [INFO]: Test suite execution completed
+2026-09-07 21:01:41 [INFO]: Test case execution completed
+2026-09-07 21:01:41 [INFO]: Test case execution completed
+2026-09-07 21:01:41 [INFO]: Test suite execution completed
+2026-09-07 21:01:41 [INFO]: Test suite execution completed
+2026-09-07 21:05:44 [INFO]: Test suite execution started
+2026-09-07 21:05:46 [INFO]: Test case execution started
+2026-09-07 21:06:04 [INFO]: Test case execution completed
+2026-09-07 21:06:04 [INFO]: Test case execution completed
+2026-09-07 21:06:05 [INFO]: Test suite execution completed
+2026-09-07 21:06:05 [INFO]: Test suite execution completed
+2026-09-07 21:06:26 [INFO]: Test suite execution started
+2026-09-07 21:06:29 [INFO]: Test case execution started
+2026-09-07 21:07:24 [INFO]: Test case execution completed
+2026-09-07 21:07:24 [INFO]: Test case execution completed
+2026-09-07 21:07:24 [INFO]: Test suite execution completed
+2026-09-07 21:07:24 [INFO]: Test suite execution completed
+2026-09-07 21:42:13 [INFO]: Navigating to login page
+2026-09-07 21:42:14 [INFO]: Login successful
+2026-09-07 21:42:14 [INFO]: Getting inventory items count
+2026-09-07 21:42:14 [INFO]: Clicked on first item add to cart button
+2026-09-07 21:42:14 [INFO]: Clicked on cart link
+2026-09-07 21:42:14 [INFO]: Clicked on checkout button
+2026-09-07 21:42:14 [INFO]: Entered first name
+2026-09-07 21:42:14 [INFO]: Entered last name
+2026-09-07 21:42:14 [INFO]: Entered postal code
+2026-09-07 21:42:15 [INFO]: Clicked on continue button
+2026-09-07 21:42:15 [INFO]: Clicked on finish button
+2026-09-07 21:42:15 [INFO]: Getting complete header text
+2026-09-07 21:42:15 [INFO]: Getting checkout complete text
+2026-09-07 21:42:15 [INFO]: Checkout complete verified
+2026-09-07 21:42:15 [INFO]: Test suite execution started
+2026-09-07 21:42:15 [INFO]: Test suite execution started
+2026-09-07 21:42:15 [INFO]: Test case execution started
+2026-09-07 21:42:16 [INFO]: Test case execution started
+2026-09-07 21:42:22 [INFO]: Test case execution completed
+2026-09-07 21:42:22 [INFO]: Test case execution completed
+2026-09-07 21:42:23 [INFO]: Test suite execution completed
+2026-09-07 21:42:23 [INFO]: Test suite execution completed
+2026-09-07 21:42:32 [INFO]: Test case execution completed
+2026-09-07 21:42:32 [INFO]: Test case execution completed
+2026-09-07 21:42:32 [INFO]: Test suite execution completed
+2026-09-07 21:42:32 [INFO]: Test suite execution completed
+2026-09-07 21:52:45 [INFO]: Test suite execution started
+2026-09-07 21:52:45 [INFO]: Test suite execution started
+2026-09-07 21:52:45 [INFO]: Test suite execution completed
+2026-09-07 21:52:45 [INFO]: Test suite execution completed
+2026-09-07 21:52:45 [INFO]: Test suite execution completed
+2026-09-07 21:52:45 [INFO]: Test suite execution completed
+2026-09-07 21:54:27 [INFO]: Navigating to login page
+2026-09-07 21:54:31 [INFO]: Login successful
+2026-09-07 21:54:31 [INFO]: Getting inventory items count
+2026-09-07 21:54:31 [INFO]: Clicked on first item add to cart button
+2026-09-07 21:54:31 [INFO]: Clicked on cart link
+2026-09-07 21:54:32 [INFO]: Clicked on checkout button
+2026-09-07 21:54:32 [INFO]: Entered first name
+2026-09-07 21:54:32 [INFO]: Entered last name
+2026-09-07 21:54:32 [INFO]: Entered postal code
+2026-09-07 21:54:32 [INFO]: Clicked on continue button
+2026-09-07 21:54:32 [INFO]: Clicked on finish button
+2026-09-07 21:54:32 [INFO]: Getting complete header text
+2026-09-07 21:54:32 [INFO]: Getting checkout complete text
+2026-09-07 21:54:32 [INFO]: Checkout complete verified
+2026-09-07 21:54:34 [INFO]: Test suite execution started
+2026-09-07 21:54:35 [INFO]: Test case execution started
+2026-09-07 21:54:35 [INFO]: Test suite execution started
+2026-09-07 21:54:36 [INFO]: Test case execution started
+2026-09-07 21:54:43 [INFO]: Test case execution completed
+2026-09-07 21:54:43 [INFO]: Test case execution completed
+2026-09-07 21:54:43 [INFO]: Test suite execution completed
+2026-09-07 21:54:43 [INFO]: Test suite execution completed
+2026-09-07 21:54:52 [INFO]: Test case execution completed
+2026-09-07 21:54:52 [INFO]: Test case execution completed
+2026-09-07 21:54:53 [INFO]: Test suite execution completed
+2026-09-07 21:54:53 [INFO]: Test suite execution completed
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:06 [INFO]: Test suite execution started
+2026-09-08 11:14:08 [INFO]: Test case execution started
+2026-09-08 11:14:08 [INFO]: Test case execution started
+2026-09-08 11:14:09 [INFO]: Test case execution started
+2026-09-08 11:14:09 [INFO]: Test case execution started
+2026-09-08 11:14:09 [INFO]: Test case execution started
+2026-09-08 11:14:09 [INFO]: Test case execution started
+2026-09-08 11:14:09 [INFO]: Test case execution started
+2026-09-08 11:14:10 [INFO]: Test case execution completed
+2026-09-08 11:14:10 [INFO]: Test case execution completed
+2026-09-08 11:14:10 [INFO]: our first log for our playwright test with info level
+2026-09-08 11:14:10 [WARN]: our first log for our playwright test with warn level
+2026-09-08 11:14:10 [ERROR]: our first log for our playwright test with error level
+2026-09-08 11:14:10 [DEBUG]: our first log for our playwright test with debug level
+2026-09-08 11:14:11 [INFO]: TC001 is excecuted successfully
+2026-09-08 11:14:11 [INFO]: Test case execution completed
+2026-09-08 11:14:11 [INFO]: Test case execution completed
+2026-09-08 11:14:11 [INFO]: Test case execution started
+2026-09-08 11:14:12 [INFO]: Test case execution completed
+2026-09-08 11:14:12 [INFO]: Test case execution completed
+2026-09-08 11:14:12 [INFO]: Test case execution started
+2026-09-08 11:14:12 [INFO]: Test case execution completed
+2026-09-08 11:14:12 [INFO]: Test case execution completed
+2026-09-08 11:14:13 [INFO]: Test case execution completed
+2026-09-08 11:14:13 [INFO]: Test case execution completed
+2026-09-08 11:14:13 [INFO]: Test case execution completed
+2026-09-08 11:14:13 [INFO]: Test case execution completed
+2026-09-08 11:14:13 [INFO]: Test case execution started
+2026-09-08 11:14:14 [INFO]: Test case execution started
+2026-09-08 11:14:14 [INFO]: Test case execution started
+2026-09-08 11:14:15 [INFO]: Test case execution started
+2026-09-08 11:14:15 [INFO]: Test case execution completed
+2026-09-08 11:14:15 [INFO]: Test case execution completed
+2026-09-08 11:14:16 [INFO]: Test case execution completed
+2026-09-08 11:14:16 [INFO]: Test case execution completed
+2026-09-08 11:14:16 [INFO]: Test case execution started
+2026-09-08 11:14:17 [INFO]: Test case execution completed
+2026-09-08 11:14:17 [INFO]: Test case execution completed
+2026-09-08 11:14:18 [INFO]: Test case execution completed
+2026-09-08 11:14:18 [INFO]: Test case execution completed
+2026-09-08 11:14:18 [INFO]: Test case execution started
+2026-09-08 11:14:18 [INFO]: Test case execution started
+2026-09-08 11:14:19 [INFO]: Test case execution completed
+2026-09-08 11:14:19 [INFO]: Test case execution completed
+2026-09-08 11:14:19 [INFO]: Test suite execution completed
+2026-09-08 11:14:20 [INFO]: Test suite execution completed
+2026-09-08 11:14:20 [INFO]: Test case execution started
+2026-09-08 11:14:21 [INFO]: Test case execution completed
+2026-09-08 11:14:21 [INFO]: Test case execution completed
+2026-09-08 11:14:21 [INFO]: navigated to wikipedia
+2026-09-08 11:14:21 [INFO]: scrolled to the element
+2026-09-08 11:14:21 [INFO]: element is visible in the viewport
+2026-09-08 11:14:21 [INFO]: Test case execution completed
+2026-09-08 11:14:21 [INFO]: Test case execution completed
+2026-09-08 11:14:22 [INFO]: Test case execution completed
+2026-09-08 11:14:22 [INFO]: Test case execution completed
+2026-09-08 11:14:22 [INFO]: Test case execution started
+2026-09-08 11:14:23 [INFO]: Test suite execution completed
+2026-09-08 11:14:23 [INFO]: Test suite execution completed
+2026-09-08 11:14:24 [INFO]: Test case execution started
+2026-09-08 11:14:24 [INFO]: waited for 3 seconds
+2026-09-08 11:14:24 [INFO]: Test case execution completed
+2026-09-08 11:14:24 [INFO]: Test case execution completed
+2026-09-08 11:14:26 [INFO]: Test case execution started
+2026-09-08 11:14:30 [INFO]: Test case execution completed
+2026-09-08 11:14:30 [INFO]: Test case execution completed
+2026-09-08 11:14:32 [INFO]: Test case execution started
+2026-09-08 11:14:38 [INFO]: Test case execution completed
+2026-09-08 11:14:38 [INFO]: Test case execution completed
+2026-09-08 11:14:39 [INFO]: Test case execution completed
+2026-09-08 11:14:39 [INFO]: Test case execution completed
+2026-09-08 11:14:39 [INFO]: Test case execution completed
+2026-09-08 11:14:39 [INFO]: Test case execution completed
+2026-09-08 11:14:46 [INFO]: Test case execution completed
+2026-09-08 11:14:46 [INFO]: Test case execution completed
+2026-09-08 11:14:46 [INFO]: Test case execution started
+2026-09-08 11:14:46 [INFO]: Test case execution started
+2026-09-08 11:14:47 [INFO]: Test case execution started
+2026-09-08 11:14:48 [INFO]: Test case execution started
+2026-09-08 11:14:50 [INFO]: Test case execution completed
+2026-09-08 11:14:50 [INFO]: Test case execution completed
+2026-09-08 11:14:50 [INFO]: Test case execution completed
+2026-09-08 11:14:50 [INFO]: Test case execution completed
+2026-09-08 11:14:51 [INFO]: Test case execution started
+2026-09-08 11:14:51 [INFO]: Test case execution started
+2026-09-08 11:14:52 [INFO]: Test case execution completed
+2026-09-08 11:14:52 [INFO]: Test case execution completed
+2026-09-08 11:14:52 [INFO]: Test case execution completed
+2026-09-08 11:14:52 [INFO]: Test case execution completed
+2026-09-08 11:14:53 [INFO]: Test case execution started
+2026-09-08 11:14:53 [INFO]: Test suite execution completed
+2026-09-08 11:14:53 [INFO]: Test suite execution completed
+2026-09-08 11:14:53 [INFO]: Test case execution completed
+2026-09-08 11:14:53 [INFO]: Test case execution completed
+2026-09-08 11:14:54 [INFO]: Test case execution started
+2026-09-08 11:14:56 [INFO]: Test case execution completed
+2026-09-08 11:14:56 [INFO]: Test case execution completed
+2026-09-08 11:14:56 [INFO]: Test suite execution started
+2026-09-08 11:14:57 [INFO]: Test suite execution completed
+2026-09-08 11:14:57 [INFO]: Test suite execution completed
+2026-09-08 11:14:57 [INFO]: Test case execution started
+2026-09-08 11:14:58 [INFO]: Test case execution completed
+2026-09-08 11:14:58 [INFO]: Test case execution completed
+2026-09-08 11:14:59 [INFO]: Test suite execution started
+2026-09-08 11:14:59 [INFO]: Test case execution completed
+2026-09-08 11:14:59 [INFO]: Test case execution completed
+2026-09-08 11:14:59 [INFO]: Test case execution started
+2026-09-08 11:14:59 [INFO]: Test suite execution started
+2026-09-08 11:14:59 [INFO]: Test suite execution completed
+2026-09-08 11:14:59 [INFO]: Test suite execution completed
+2026-09-08 11:15:01 [INFO]: Test case execution started
+2026-09-08 11:15:01 [INFO]: Test case execution started
+2026-09-08 11:15:02 [INFO]: Test case execution completed
+2026-09-08 11:15:02 [INFO]: Test case execution completed
+2026-09-08 11:15:02 [INFO]: Test case execution completed
+2026-09-08 11:15:02 [INFO]: Test case execution completed
+2026-09-08 11:15:03 [INFO]: Test suite execution completed
+2026-09-08 11:15:03 [INFO]: Test suite execution completed
+2026-09-08 11:15:04 [INFO]: Test suite execution completed
+2026-09-08 11:15:04 [INFO]: Test suite execution completed
+2026-09-08 11:15:05 [INFO]: Test suite execution started
+2026-09-08 11:15:06 [INFO]: Test case execution started
+2026-09-08 11:15:07 [INFO]: Test case execution completed
+2026-09-08 11:15:07 [INFO]: Test case execution completed
+2026-09-08 11:15:07 [INFO]: Test case execution completed
+2026-09-08 11:15:07 [INFO]: Test case execution completed
+2026-09-08 11:15:08 [INFO]: Test case execution started
+2026-09-08 11:15:08 [INFO]: Test case execution started
+2026-09-08 11:15:10 [INFO]: Test case execution completed
+2026-09-08 11:15:10 [INFO]: Test case execution completed
+2026-09-08 11:15:11 [INFO]: Test case execution completed
+2026-09-08 11:15:11 [INFO]: Test case execution completed
+2026-09-08 11:15:11 [INFO]: Test suite execution completed
+2026-09-08 11:15:11 [INFO]: Test suite execution completed
+2026-09-08 11:15:11 [INFO]: Test case execution completed
+2026-09-08 11:15:11 [INFO]: Test case execution completed
+2026-09-08 11:15:11 [INFO]: Test case execution started
+2026-09-08 11:15:12 [INFO]: Test case execution started
+2026-09-08 11:15:13 [INFO]: Test suite execution started
+2026-09-08 11:15:14 [INFO]: Test case execution completed
+2026-09-08 11:15:14 [INFO]: Test case execution completed
+2026-09-08 11:15:14 [INFO]: Test case execution started
+2026-09-08 11:15:14 [INFO]: Test suite execution completed
+2026-09-08 11:15:15 [INFO]: Test suite execution completed
+2026-09-08 11:15:15 [INFO]: we are using playwright inbuilt locators
+2026-09-08 11:15:15 [INFO]: -------getByText------
+2026-09-08 11:15:15 [INFO]: --------getByPlaceholder---------
+2026-09-08 11:15:15 [INFO]: -----getByRole--------
+2026-09-08 11:15:15 [INFO]: Test case execution completed
+2026-09-08 11:15:15 [INFO]: Test case execution completed
+2026-09-08 11:15:16 [INFO]: Test case execution started
+2026-09-08 11:15:17 [INFO]: Test suite execution started
+2026-09-08 11:15:18 [INFO]: Test case execution started
+2026-09-08 11:15:20 [INFO]: Test case execution completed
+2026-09-08 11:15:20 [INFO]: Test case execution completed
+2026-09-08 11:15:20 [INFO]: Test suite execution completed
+2026-09-08 11:15:20 [INFO]: Test suite execution completed
+2026-09-08 11:15:20 [INFO]: -----getByTestId--------
+2026-09-08 11:15:20 [INFO]: -----getByRole----------
+2026-09-08 11:15:20 [INFO]: -----getByTestId--------
+2026-09-08 11:15:21 [INFO]: Test case execution completed
+2026-09-08 11:15:21 [INFO]: Test case execution completed
+2026-09-08 11:15:21 [INFO]: Test case execution completed
+2026-09-08 11:15:21 [INFO]: Test case execution completed
+2026-09-08 11:15:22 [INFO]: Test case execution started
+2026-09-08 11:15:22 [INFO]: Test case execution started
+2026-09-08 11:15:23 [INFO]: we are using playwright inbuilt locators
+2026-09-08 11:15:23 [INFO]: -------getByTitle------
+2026-09-08 11:15:23 [INFO]: -------getByText-------------
+2026-09-08 11:15:23 [INFO]: -----getByRole--------
+2026-09-08 11:15:24 [INFO]: Test case execution completed
+2026-09-08 11:15:24 [INFO]: Test case execution completed
+2026-09-08 11:15:25 [INFO]: Test case execution completed
+2026-09-08 11:15:25 [INFO]: Test case execution completed
+2026-09-08 11:15:25 [INFO]: Test case execution completed
+2026-09-08 11:15:25 [INFO]: Test case execution completed
+2026-09-08 11:15:25 [INFO]: Test suite execution completed
+2026-09-08 11:15:25 [INFO]: Test suite execution completed
+2026-09-08 11:15:26 [INFO]: Test case execution started
+2026-09-08 11:15:26 [INFO]: we are using playwright inbuilt locators
+2026-09-08 11:15:26 [INFO]: -------getByRole------
+2026-09-08 11:15:26 [INFO]: Test case execution started
+2026-09-08 11:15:26 [INFO]: -------getByAltText------
+2026-09-08 11:15:27 [INFO]: Test case execution completed
+2026-09-08 11:15:27 [INFO]: Test case execution completed
+2026-09-08 11:15:27 [INFO]: Test case execution started
+2026-09-08 11:15:28 [INFO]: we are using playwright inbuilt locators
+2026-09-08 11:15:28 [INFO]: -------getByLabel------
+2026-09-08 11:15:29 [INFO]: Test case execution completed
+2026-09-08 11:15:29 [INFO]: Test case execution completed
+2026-09-08 11:15:30 [INFO]: Test suite execution completed
+2026-09-08 11:15:30 [INFO]: Test suite execution completed
+2026-09-08 11:15:57 [INFO]: Test case execution completed
+2026-09-08 11:15:57 [INFO]: Test case execution completed
+2026-09-08 11:15:57 [INFO]: Test suite execution completed
+2026-09-08 11:15:57 [INFO]: Test suite execution completed
+2026-09-08 11:54:33 [INFO]: Test suite execution started
+2026-09-08 11:54:33 [INFO]: Test suite execution started
+2026-09-08 11:54:33 [INFO]: Test suite execution started
+2026-09-08 11:54:34 [INFO]: Test case execution started
+2026-09-08 11:54:34 [INFO]: Test case execution started
+2026-09-08 11:54:35 [INFO]: Test case execution started
+2026-09-08 11:54:36 [INFO]: Test case execution completed
+2026-09-08 11:54:36 [INFO]: Test case execution completed
+2026-09-08 11:54:36 [INFO]: Test suite execution completed
+2026-09-08 11:54:36 [INFO]: Test suite execution completed
+2026-09-08 11:54:41 [INFO]: Test case execution completed
+2026-09-08 11:54:41 [INFO]: Test case execution completed
+2026-09-08 11:54:41 [INFO]: Test case execution completed
+2026-09-08 11:54:41 [INFO]: Test case execution completed
+2026-09-08 11:54:41 [INFO]: Test suite execution completed
+2026-09-08 11:54:41 [INFO]: Test suite execution completed
+2026-09-08 11:54:42 [INFO]: Test suite execution completed
+2026-09-08 11:54:42 [INFO]: Test suite execution completed
+2026-09-08 11:55:09 [INFO]: Test suite execution started
+2026-09-08 11:55:09 [INFO]: Test suite execution started
+2026-09-08 11:55:09 [INFO]: Test suite execution started
+2026-09-08 11:55:10 [INFO]: Test case execution started
+2026-09-08 11:55:10 [INFO]: Test case execution started
+2026-09-08 11:55:10 [INFO]: Test case execution started
+2026-09-08 11:55:11 [INFO]: Test case execution completed
+2026-09-08 11:55:11 [INFO]: Test case execution completed
+2026-09-08 11:55:11 [INFO]: Test suite execution completed
+2026-09-08 11:55:11 [INFO]: Test suite execution completed
+2026-09-08 11:55:12 [INFO]: Test case execution completed
+2026-09-08 11:55:12 [INFO]: Test case execution completed
+2026-09-08 11:55:12 [INFO]: Test suite execution completed
+2026-09-08 11:55:12 [INFO]: Test case execution completed
+2026-09-08 11:55:12 [INFO]: Test case execution completed
+2026-09-08 11:55:12 [INFO]: Test suite execution completed
+2026-09-08 11:55:13 [INFO]: Test suite execution completed
+2026-09-08 11:55:13 [INFO]: Test suite execution completed
+2026-09-08 11:58:01 [INFO]: Test suite execution started
+2026-09-08 11:58:01 [INFO]: Test suite execution started
+2026-09-08 11:58:01 [INFO]: Test suite execution started
+2026-09-08 11:58:02 [INFO]: Test case execution started
+2026-09-08 11:58:02 [INFO]: Test case execution started
+2026-09-08 11:58:02 [INFO]: Test case execution started
+2026-09-08 11:58:04 [INFO]: Test case execution completed
+2026-09-08 11:58:04 [INFO]: Test case execution completed
+2026-09-08 11:58:04 [INFO]: Test case execution completed
+2026-09-08 11:58:04 [INFO]: Test case execution completed
+2026-09-08 11:58:04 [INFO]: Test suite execution completed
+2026-09-08 11:58:04 [INFO]: Test suite execution completed
+2026-09-08 11:58:05 [INFO]: Test suite execution completed
+2026-09-08 11:58:05 [INFO]: Test suite execution completed
+2026-09-08 11:58:32 [INFO]: Test case execution completed
+2026-09-08 11:58:32 [INFO]: Test case execution completed
+2026-09-08 11:58:34 [INFO]: Test suite execution completed
+2026-09-08 11:58:34 [INFO]: Test suite execution completed
+2026-09-08 12:07:55 [INFO]: Test suite execution started
+2026-09-08 12:07:55 [INFO]: Test suite execution started
+2026-09-08 12:07:55 [INFO]: Test suite execution started
+2026-09-08 12:07:56 [INFO]: Test case execution started
+2026-09-08 12:07:56 [INFO]: Test case execution started
+2026-09-08 12:07:56 [INFO]: Test case execution started
+2026-09-08 12:07:58 [INFO]: Test case execution completed
+2026-09-08 12:07:58 [INFO]: Test case execution completed
+2026-09-08 12:07:58 [INFO]: Test suite execution completed
+2026-09-08 12:07:58 [INFO]: Test suite execution completed
+2026-09-08 12:07:58 [INFO]: Test case execution completed
+2026-09-08 12:07:58 [INFO]: Test case execution completed
+2026-09-08 12:07:58 [INFO]: Test suite execution completed
+2026-09-08 12:07:58 [INFO]: Test suite execution completed
+2026-09-08 12:08:25 [INFO]: Test case execution completed
+2026-09-08 12:08:25 [INFO]: Test case execution completed
+2026-09-08 12:08:28 [INFO]: Test suite execution completed
+2026-09-08 12:08:28 [INFO]: Test suite execution completed
+2026-09-08 12:08:42 [INFO]: Test suite execution started
+2026-09-08 12:08:43 [INFO]: Test suite execution started
+2026-09-08 12:08:43 [INFO]: Test suite execution started
+2026-09-08 12:08:44 [INFO]: Test case execution started
+2026-09-08 12:08:44 [INFO]: Test case execution started
+2026-09-08 12:08:44 [INFO]: Test case execution started
+2026-09-08 12:08:45 [INFO]: Test case execution completed
+2026-09-08 12:08:45 [INFO]: Test case execution completed
+2026-09-08 12:08:45 [INFO]: Test suite execution completed
+2026-09-08 12:08:45 [INFO]: Test suite execution completed
+2026-09-08 12:08:46 [INFO]: Test case execution completed
+2026-09-08 12:08:46 [INFO]: Test case execution completed
+2026-09-08 12:08:46 [INFO]: Test suite execution completed
+2026-09-08 12:08:46 [INFO]: Test suite execution completed
+2026-09-08 12:08:49 [INFO]: Test case execution completed
+2026-09-08 12:08:49 [INFO]: Test case execution completed
+2026-09-08 12:08:50 [INFO]: Test suite execution completed
+2026-09-08 12:08:50 [INFO]: Test suite execution completed
+2026-09-08 12:11:22 [INFO]: Test suite execution started
+2026-09-08 12:11:22 [INFO]: Test suite execution started
+2026-09-08 12:11:22 [INFO]: Test suite execution started
+2026-09-08 12:11:23 [INFO]: Test case execution started
+2026-09-08 12:11:23 [INFO]: Test case execution started
+2026-09-08 12:11:23 [INFO]: Test case execution started
+2026-09-08 12:11:25 [INFO]: Test case execution completed
+2026-09-08 12:11:25 [INFO]: Test case execution completed
+2026-09-08 12:11:25 [INFO]: Test suite execution completed
+2026-09-08 12:11:25 [INFO]: Test suite execution completed
+2026-09-08 12:11:25 [INFO]: Test case execution completed
+2026-09-08 12:11:25 [INFO]: Test case execution completed
+2026-09-08 12:11:26 [INFO]: Test suite execution completed
+2026-09-08 12:11:26 [INFO]: Test suite execution completed
+2026-09-08 12:11:29 [INFO]: Test case execution completed
+2026-09-08 12:11:29 [INFO]: Test case execution completed
+2026-09-08 12:11:30 [INFO]: Test suite execution completed
+2026-09-08 12:11:30 [INFO]: Test suite execution completed
+2026-09-08 12:13:01 [INFO]: Test suite execution started
+2026-09-08 12:13:01 [INFO]: Test suite execution started
+2026-09-08 12:13:01 [INFO]: Test suite execution started
+2026-09-08 12:13:03 [INFO]: Test case execution started
+2026-09-08 12:13:03 [INFO]: Test case execution started
+2026-09-08 12:13:04 [INFO]: Test case execution started
+2026-09-08 12:13:04 [INFO]: Test case execution completed
+2026-09-08 12:13:05 [INFO]: Test case execution completed
+2026-09-08 12:13:05 [INFO]: Test suite execution completed
+2026-09-08 12:13:05 [INFO]: Test suite execution completed
+2026-09-08 12:13:06 [INFO]: Test case execution completed
+2026-09-08 12:13:06 [INFO]: Test case execution completed
+2026-09-08 12:13:06 [INFO]: Test case execution completed
+2026-09-08 12:13:06 [INFO]: Test case execution completed
+2026-09-08 12:13:07 [INFO]: Test suite execution completed
+2026-09-08 12:13:07 [INFO]: Test suite execution completed
+2026-09-08 12:13:07 [INFO]: Test suite execution completed
+2026-09-08 12:13:07 [INFO]: Test suite execution completed
