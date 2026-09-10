@@ -1,7 +1,0 @@
-2026-09-08 11:15:27 [INFO]: Test case execution started
-2026-09-08 11:15:28 [INFO]: we are using playwright inbuilt locators
-2026-09-08 11:15:28 [INFO]: -------getByLabel------
-2026-09-08 11:15:57 [INFO]: Test case execution completed
-2026-09-08 11:15:57 [INFO]: Test case execution completed
-2026-09-08 11:15:57 [INFO]: Test suite execution completed
-2026-09-08 11:15:57 [INFO]: Test suite execution completed

@@ -1,5 +1,0 @@
-2026-09-08 11:14:14 [INFO]: Test case execution started
-Status code is 200
-Response text is OK
-2026-09-08 11:14:15 [INFO]: Test case execution completed
-2026-09-08 11:14:15 [INFO]: Test case execution completed

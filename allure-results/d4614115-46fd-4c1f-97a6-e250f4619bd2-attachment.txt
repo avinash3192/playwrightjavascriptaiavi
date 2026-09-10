@@ -1,5 +1,0 @@
-2026-09-08 11:14:18 [INFO]: Test case execution started
-2026-09-08 11:14:21 [INFO]: Test case execution completed
-2026-09-08 11:14:21 [INFO]: Test case execution completed
-2026-09-08 11:14:23 [INFO]: Test suite execution completed
-2026-09-08 11:14:23 [INFO]: Test suite execution completed

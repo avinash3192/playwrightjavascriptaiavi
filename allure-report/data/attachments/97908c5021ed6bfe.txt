@@ -1,3 +1,0 @@
-2026-09-08 11:14:22 [INFO]: Test case execution started
-2026-09-08 11:14:38 [INFO]: Test case execution completed
-2026-09-08 11:14:38 [INFO]: Test case execution completed

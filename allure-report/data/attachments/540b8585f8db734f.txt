@@ -1,9 +1,0 @@
-2026-09-08 11:14:06 [INFO]: Test suite execution started
-2026-09-08 11:14:09 [INFO]: Test case execution started
-autoTitles count is: 6
-autoTitlesText: Playwright
-autoTitlesText: Playwright (software)
-autoTitlesText: Playwrights Horizons
-pageLocator count is: 2
-2026-09-08 11:14:12 [INFO]: Test case execution completed
-2026-09-08 11:14:12 [INFO]: Test case execution completed

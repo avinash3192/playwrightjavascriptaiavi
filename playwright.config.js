@@ -13,6 +13,9 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  //configure Playwright to automatically clean the Allure results before every run,
+  globalSetup: './global-setup.js',
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,

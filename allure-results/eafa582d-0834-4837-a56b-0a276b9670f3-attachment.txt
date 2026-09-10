@@ -1,6 +1,0 @@
-2026-09-08 11:15:26 [INFO]: Test case execution started
-2026-09-08 11:15:26 [INFO]: we are using playwright inbuilt locators
-2026-09-08 11:15:26 [INFO]: -------getByRole------
-2026-09-08 11:15:26 [INFO]: -------getByAltText------
-2026-09-08 11:15:27 [INFO]: Test case execution completed
-2026-09-08 11:15:27 [INFO]: Test case execution completed
