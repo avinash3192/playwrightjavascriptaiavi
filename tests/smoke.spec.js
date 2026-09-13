@@ -1062,3 +1062,7 @@ test('@regression Sandeep: logs in to Sauce Demo with JSON test data', async ({ 
     await expect(page.locator('.title')).toHaveText('Products');
     await expect(page.locator('.inventory_item')).toHaveCount(6);
 })
+
+test('@auto Rail Yatri', async ({ page }) => {
+    await page.goto('https://www.railyatri.in/');
+});
