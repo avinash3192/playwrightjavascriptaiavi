@@ -45,6 +45,12 @@ export class LoginPage {
         await this.loginButton.click();
     }
 
+        async validLoginExcel(username,password) {
+        await this.username.fill(username);
+        await this.password.fill(password);
+        await this.loginButton.click();
+    }
+
     async getLoginErrorMessage() {
         return await this.loginError.textContent();
     }

@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","3702","Sauce Demo login test","chromium","2026-09-12","failed","2026-09-12","","sauce-login.spec.js","",""
+"","13412","@railyatri To verify","chromium","2026-09-15","passed","2026-09-15","","smoke.spec.js","",""

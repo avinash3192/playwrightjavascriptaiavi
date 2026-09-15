@@ -18,8 +18,17 @@ import logger from '../utils/logger'
 //tells Playwright to run the tests inside that describe block in parallel instead of one after another.
 // test.describe.configure({mode: 'parallel'});
 
+
+//--importing the test data from saude-demo-data.json
 import sauceDemoData from '../testdata/saude-demo-data.json';
 
+//--importing the excelRead function from excelUtil.js
+import {excelRead} from '../utils/excelUtil.js';
+
+
+import {LoginPage} from  '../POM/LoginPage.js';
+
+import {getValidUser} from '../utils/excelUtil.js';
 
 // Named async function
 // test.only("Login to amazon application", async function doValidLogin({page}){
@@ -1052,7 +1061,7 @@ test.only("TC045: Handling horizontal scroll from left to right in playwright us
 })
 
 
-test('@regression Sandeep: logs in to Sauce Demo with JSON test data', async ({ page }) => {
+test('TC046: @regression Sandeep: logs in to Sauce Demo with JSON test data', async ({ page }) => {
     await page.goto(sauceDemoData.url.staging);
     await page.getByTestId('user-name').fill(sauceDemoData.validUser.username);
     await page.getByTestId('password').fill(sauceDemoData.validUser.password);
@@ -1066,3 +1075,92 @@ test('@regression Sandeep: logs in to Sauce Demo with JSON test data', async ({ 
 test('@auto Rail Yatri', async ({ page }) => {
     await page.goto('https://www.railyatri.in/');
 });
+
+test('TC047: @excel To print the values from exceltestdata', async ({page}) => {
+const excelData = await excelRead('testdata/exceltestdata.xlsx');
+console.log(excelData);
+})
+
+
+test('TC048: @saucedemoexcellogin login with valid user from Excel',async({page})=> {
+const validUser = await getValidUser('testdata/exceltestdata.xlsx');
+const loginPage= new LoginPage(page);
+await loginPage.goToLoginPageUrl();
+await expect(page).toHaveTitle('Swag Labs');
+await loginPage.validLoginExcel(validUser.username,validUser.password);
+     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+     await expect(page.locator("[data-test='title']")).toHaveText("Products");
+});
+
+test("TC049: @postapi Post request using Playwright API testing", async({request})=>{
+const requestPayload = {
+    name: 'Avi',
+    job: 'test'
+};
+
+const response = await request.post("https://reqres.in/api/users",{
+    data: requestPayload,
+    headers: {
+        Accept: "application/json",
+    },
+    });
+console.log(response.status());
+expect(response.status()).toBe(201);
+console.log(response.statusText());
+const responseBody = await response.json();
+console.log(responseBody);
+expect(responseBody.name).toBe('Avi')
+expect(responseBody.job).toBe('test')
+});
+
+
+test('TC050: @railyatri To verify', async({page}) =>
+{
+// 1. Open https://www.railyatri.in/ in a fresh browser context.
+await page.goto('https://www.railyatri.in/');
+
+//Since website titles can sometimes change slightly, I recommend using a regular expression when you only need to verify that the title contains RailYatri
+//toHaveTitle() performs an exact match when you pass a string, whereas using /RailYatri/ performs a pattern match.
+await expect(page).toHaveTitle(/RailYatri/);
+
+// 2. Verify the default radio and checkbox states.
+const pnrStatus = page.locator('#pnr');
+const trainStatus = page.locator('#train-number');
+await expect(pnrStatus).toBeChecked();
+await expect(trainStatus).not.toBeChecked();
+
+ // 3. Select Train Status and all four Quick Filters.
+await trainStatus.check();
+await expect(trainStatus).toBeChecked();
+
+// 4. Clear AC Only and Ladies Quota while retaining the other filters.
+await page.locator("//label[@for='aconly']").check();
+await page.locator("//label[@for='ladiesquota']").click();
+
+ // 6. Open the journey Date calendar & search for hard coded date
+const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
+await dateField.click();
+
+await page.locator("//button[text()='18']").click();
+await page.pause();
+
+await expect(page.locator('#trainDatepicker')).toHaveValue('18 Sep, Fri');
+await expect(page.locator('#trainDatepicker')).toHaveValue(/18 Sep/);
+
+ // 6. Open the journey Date calendar & search for future date
+
+await dateField.click();
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate()+1)
+const tomorrowDay = tomorrow.getDate().toString();
+console.log(`tomorrowDay: ${tomorrowDay}`);
+//normalize-space() is an XPath function used to remove unnecessary whitespace from text.
+//Exact normalized text:
+//or contains(normalize-space(),'18')
+// Wrong way to use: JavaScript treats ${tomorrowDay} as literal text.
+// const tomorowButton = page.locator("//button[normalize-space()='${tomorrowDay}']");
+const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
+await tomorrowButton.click();
+//regular expression - performs a pattern match
+await expect(page.locator('#trainDatepicker')).toHaveValue(/16 Sep/);
+})
