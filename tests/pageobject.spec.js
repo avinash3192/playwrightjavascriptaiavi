@@ -8,7 +8,7 @@ import { CheckoutStepTwo } from '../POM/CheckoutStepTwo';
 import { CheckoutOverviewPage } from '../POM/CheckoutOverviewPage';
 import { CheckoutComplete } from '../POM/CheckoutComplete';
 
-console.log("BaseUrl:", process.env.BaseUrl);
+// console.log("BaseUrl:", process.env.BaseUrl);
 
 test.only("TC001: Saucedmo end to end test using playwright", async ({ page }) => {
      // initialize the page objects 

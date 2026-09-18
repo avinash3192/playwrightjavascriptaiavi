@@ -13,7 +13,7 @@ test.only('Sauce Demo login test', async ({ page }) => {
   await page.goto(url);
   await expect(page).toHaveURL(/saucedemo\.com/);
 
-  await page.locator('[data-test="username"]').fill(username);
+  await page.locator('[data-test="username"]').fill(usernameq);
   await page.locator('[data-test="password"]').fill(password);
   await page.locator('[data-test="login-button"]').click();
 

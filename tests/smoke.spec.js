@@ -13,7 +13,7 @@ import 'dotenv/config';
 // process.env.BaseUrl
 //  ↓
 // page.goto(process.env.BaseUrl)
-import logger from '../utils/logger'
+import logger from '../utils/logger';
 
 //tells Playwright to run the tests inside that describe block in parallel instead of one after another.
 // test.describe.configure({mode: 'parallel'});
@@ -23,12 +23,12 @@ import logger from '../utils/logger'
 import sauceDemoData from '../testdata/saude-demo-data.json';
 
 //--importing the excelRead function from excelUtil.js
-import {excelRead} from '../utils/excelUtil.js';
+import { excelRead } from '../utils/excelUtil.js';
 
 
-import {LoginPage} from  '../POM/LoginPage.js';
+import { LoginPage } from '../POM/LoginPage.js';
 
-import {getValidUser} from '../utils/excelUtil.js';
+import { getValidUser } from '../utils/excelUtil.js';
 
 // Named async function
 // test.only("Login to amazon application", async function doValidLogin({page}){
@@ -55,7 +55,10 @@ test("TC001: Login to saucedemo application", async ({ page }) => {
 
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
     await expect(page.locator("//div[text()='Swag Labs']")).toBeVisible();
-
+    //soft assertions are used to continue the test execution even if the assertion fails, 
+    // allowing you to capture multiple failures in a single test run. 
+    // This can be useful for identifying multiple issues in a single test case.
+    await expect.soft(page.locator("#user-name")).toHaveClass('input_error form_input');
 
 
     await page.locator("//button[@data-test='add-to-cart-sauce-labs-backpack']").click();
@@ -86,8 +89,8 @@ test("TC002: @smoke Dropdown validation in sauce demo website", async ({ page })
     await page.locator("//input[@placeholder='Password']").fill('secret_sauce');
     await page.locator("//input[@name='login-button']").click();
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
-    await expect(page.locator("//div[text()='Swag Labs']"))
-    let dropDown = await page.locator("//select[@class='product_sort_container']");
+    await expect(page.locator("//div[text()='Swag Labs']")).toBeVisible();
+    let dropDown = page.locator("//select[@class='product_sort_container']");
     await dropDown.selectOption("lohi");
     await page.waitForTimeout(4000);
     await dropDown.selectOption("hilo")
@@ -138,7 +141,7 @@ test("TC005: Try login to testmuai.com selenium-playground", async ({ page }) =>
 })
 
 
-test("TC006: List of products & find the sum of all prices from locators & also total of prices from array", async ({ page }) => {
+test("TC006: @quick List of products & find the sum of all prices from locators & also total of prices from array", async ({ page }) => {
     await page.goto("https://www.saucedemo.com/");
     await expect(page).toHaveTitle("Swag Labs");
     await page.locator("//input[@id='user-name']").fill('standard_user');
@@ -151,7 +154,7 @@ test("TC006: List of products & find the sum of all prices from locators & also 
     await page.locator("//input[@name='login-button']").click();
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
     await expect(page.locator("//div[text()='Swag Labs']"));
-    let inventoryList = await page.locator("//div[@class='inventory_item']");
+    let inventoryList = page.locator("//div[@class='inventory_item']");
     let inventoryCount = await inventoryList.count();
     let totalPrice = 0;
     let prices = [];
@@ -168,13 +171,15 @@ test("TC006: List of products & find the sum of all prices from locators & also 
         //The replace() method is used to remove the dollar sign from the product price string. It replaces the "$" character with an empty string, effectively removing it.
         const productName = await item.locator(".inventory_item_name").textContent();
         const productPrice = await item.locator(".inventory_item_price").textContent();
+        // const productName = await item.locator(".inventory_item_name").innerText();
+        // const productPrice = await item.locator(".inventory_item_price").innerText();
         // console.log("Product Name:", productName);
         // console.log("Product Price:", productPrice);
         //const price = parseFloat(productPrice.replace("$", ""));
         const price = Number(productPrice.replace("$", ""));
         totalPrice += price;
         console.log(`Product Name : ${productName}`);
-        console.log(`Product Price: $${price}`);
+        console.log(`Product Price: ${price}`);
         prices.push(price);
     }
     console.log(`Total price of all products ${totalPrice}`);
@@ -1076,91 +1081,103 @@ test('@auto Rail Yatri', async ({ page }) => {
     await page.goto('https://www.railyatri.in/');
 });
 
-test('TC047: @excel To print the values from exceltestdata', async ({page}) => {
-const excelData = await excelRead('testdata/exceltestdata.xlsx');
-console.log(excelData);
+test('TC047: @excel To print the values from exceltestdata', async ({ page }) => {
+    const excelData = await excelRead('testdata/exceltestdata.xlsx');
+    console.log(excelData);
 })
 
 
-test('TC048: @saucedemoexcellogin login with valid user from Excel',async({page})=> {
-const validUser = await getValidUser('testdata/exceltestdata.xlsx');
-const loginPage= new LoginPage(page);
-await loginPage.goToLoginPageUrl();
-await expect(page).toHaveTitle('Swag Labs');
-await loginPage.validLoginExcel(validUser.username,validUser.password);
-     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
-     await expect(page.locator("[data-test='title']")).toHaveText("Products");
+test('TC048: @saucedemoexcellogin login with valid user from Excel', async ({ page }) => {
+    const validUser = await getValidUser('testdata/exceltestdata.xlsx');
+    const loginPage = new LoginPage(page);
+    await loginPage.goToLoginPageUrl();
+    await expect(page).toHaveTitle('Swag Labs');
+    await loginPage.validLoginExcel(validUser.username, validUser.password);
+    await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
+    await expect(page.locator("[data-test='title']")).toHaveText("Products");
 });
 
-test("TC049: @postapi Post request using Playwright API testing", async({request})=>{
-const requestPayload = {
-    name: 'Avi',
-    job: 'test'
-};
+test("TC049: @postapi Post request using Playwright API testing", async ({ request }) => {
 
-const response = await request.post("https://reqres.in/api/users",{
-    data: requestPayload,
-    headers: {
-        Accept: "application/json",
-    },
+    const requestPayload = {
+        name: "Avi",
+        job: "test"
+    };
+
+    const response = await request.post("https://reqres.in/api/users", {
+        data: requestPayload,
+        headers: {
+            Accept: "application/json"
+        }
     });
-console.log(response.status());
-expect(response.status()).toBe(201);
-console.log(response.statusText());
-const responseBody = await response.json();
-console.log(responseBody);
-expect(responseBody.name).toBe('Avi')
-expect(responseBody.job).toBe('test')
+
+    console.log("Status:", response.status());
+    console.log("Status Text:", response.statusText());
+
+    expect(response.status()).toBe(201);
+    expect(response.ok()).toBeTruthy();
+
+    const responseBody = await response.json();
+
+    console.log("Response Body:", responseBody);
+
+    expect(responseBody.name).toBe("Avi");
+    expect(responseBody.job).toBe("test");
 });
 
 
-test('TC050: @railyatri To verify', async({page}) =>
-{
-// 1. Open https://www.railyatri.in/ in a fresh browser context.
-await page.goto('https://www.railyatri.in/');
+test('TC050: @railyatri To verify', async ({ page }) => {
+    // 1. Open https://www.railyatri.in/ in a fresh browser context.
+    await page.goto('https://www.railyatri.in/');
 
-//Since website titles can sometimes change slightly, I recommend using a regular expression when you only need to verify that the title contains RailYatri
-//toHaveTitle() performs an exact match when you pass a string, whereas using /RailYatri/ performs a pattern match.
-await expect(page).toHaveTitle(/RailYatri/);
+    //Since website titles can sometimes change slightly, I recommend using a regular expression when you only need to verify that the title contains RailYatri
+    //toHaveTitle() performs an exact match when you pass a string, whereas using /RailYatri/ performs a pattern match.
+    await expect(page).toHaveTitle(/RailYatri/);
 
-// 2. Verify the default radio and checkbox states.
-const pnrStatus = page.locator('#pnr');
-const trainStatus = page.locator('#train-number');
-await expect(pnrStatus).toBeChecked();
-await expect(trainStatus).not.toBeChecked();
+    await expect(page.locator("//img[@title='RailYatri'] [@alt='RailYatri Logo']").first()).toBeVisible();
+    await expect(page.getByRole('link', { name: 'RailYatri Logo' }).first()).toBeVisible();
 
- // 3. Select Train Status and all four Quick Filters.
-await trainStatus.check();
-await expect(trainStatus).toBeChecked();
+    const railYatriLogo = page.getByAltText('RailYatri Logo').first();
+    await expect(railYatriLogo).toBeVisible();
 
-// 4. Clear AC Only and Ladies Quota while retaining the other filters.
-await page.locator("//label[@for='aconly']").check();
-await page.locator("//label[@for='ladiesquota']").click();
+    // 2. Verify the default radio and checkbox states.
+    const pnrStatus = page.locator('#pnr');
+    const trainStatus = page.locator('#train-number');
+    await expect(pnrStatus).toBeChecked();
+    await expect(trainStatus).not.toBeChecked();
 
- // 6. Open the journey Date calendar & search for hard coded date
-const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
-await dateField.click();
+    // 3. Select Train Status and all four Quick Filters.
+    await trainStatus.check();
+    await expect(trainStatus).toBeChecked();
 
-await page.locator("//button[text()='18']").click();
-await page.pause();
+    // 4. Clear AC Only and Ladies Quota while retaining the other filters.
+    await page.locator("//label[@for='aconly']").check();
+    await page.locator("//label[@for='ladiesquota']").click();
 
-await expect(page.locator('#trainDatepicker')).toHaveValue('18 Sep, Fri');
-await expect(page.locator('#trainDatepicker')).toHaveValue(/18 Sep/);
+    // 6. Open the journey Date calendar & search for hard coded date
+    const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
+    await dateField.click();
 
- // 6. Open the journey Date calendar & search for future date
+    await page.locator("//button[text()='18']").click();
+    await page.pause();
 
-await dateField.click();
-const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate()+1)
-const tomorrowDay = tomorrow.getDate().toString();
-console.log(`tomorrowDay: ${tomorrowDay}`);
-//normalize-space() is an XPath function used to remove unnecessary whitespace from text.
-//Exact normalized text:
-//or contains(normalize-space(),'18')
-// Wrong way to use: JavaScript treats ${tomorrowDay} as literal text.
-// const tomorowButton = page.locator("//button[normalize-space()='${tomorrowDay}']");
-const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
-await tomorrowButton.click();
-//regular expression - performs a pattern match
-await expect(page.locator('#trainDatepicker')).toHaveValue(/16 Sep/);
+    await expect(page.locator('#trainDatepicker')).toHaveValue('18 Sep, Fri');
+    await expect(page.locator('#trainDatepicker')).toHaveValue(/18 Sep/);
+
+    // 6. Open the journey Date calendar & search for future date
+
+    await dateField.click();
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    const tomorrowDay = tomorrow.getDate().toString();
+    console.log(`tomorrowDay: ${tomorrowDay}`);
+    //normalize-space() is an XPath function used to remove unnecessary whitespace from text.
+    //Exact normalized text:
+    //or contains(normalize-space(),'18')
+    // Wrong way to use: JavaScript treats ${tomorrowDay} as literal text.
+    // const tomorowButton = page.locator("//button[normalize-space()='${tomorrowDay}']");
+    const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
+    await tomorrowButton.click();
+    //regular expression - performs a pattern match
+    await expect(page.locator('#trainDatepicker')).toHaveValue(/17 Sep/);
 })

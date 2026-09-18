@@ -25,17 +25,17 @@ for (let index in fruits) {
 
 
 //Example 2: for...of (Recommended)
-let fruits = ["Apple", "Banana", "Orange"];
+let fruits1 = ["Apple", "Banana", "Orange"];
 
-for (let fruit of fruits) {
+for (let fruit of fruits1) {
     console.log(fruit);
 }
 
 
 // Example 3: If you need both index and value
-let fruits = ["Apple", "Banana", "Orange"];
+let fruits2 = ["Apple", "Banana", "Orange"];
 
-for (let [index, fruit] of fruits.entries()) {
+for (let [index, fruit] of fruits2.entries()) {
     console.log(index, fruit);
 }
 
@@ -47,22 +47,46 @@ for (let [index, fruit] of fruits.entries()) {
 // for...of → Values (recommended for arrays, strings, Sets, Maps, and other iterable objects).
 
 //Example: for...in with a string
-let str = "Hello";
+let str3 = "Hello";
 
-for (let index in str) {
-    console.log(index, str[index]);
+for (let index in str3) {
+    console.log(index, str3[index]);
 }
 
 //Use for...in if you need the index:
-let str = "Java";
+let str2 = "Java";
 
-for (let i in str) {
-    console.log(`Index: ${i}, Character: ${str[i]}`);
+for (let i in str2) {
+    console.log(`Index: ${i}, Character: ${str2[i]}`);
 }
 
 //Use for...of if you only need the characters:
-let str = "Java";
+let str1 = "Java";
 
-for (let ch of str) {
+for (let ch of str1) {
     console.log(ch);
 }
+
+
+
+let obj2 = {
+    name1: 'Avinash',
+    job: 'test',
+    Age: 32
+}
+
+for(let aj in obj2){
+    console.log(aj, obj2[aj]);
+}
+
+//error - not iterable
+// let obj3 = {
+//     name1: 'Avinash',
+//     job: 'test',
+//     Age: 32
+// }
+
+
+// for(let aj1 of obj3){
+//     console.log(aj1);
+// }

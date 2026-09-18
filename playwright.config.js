@@ -15,7 +15,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   //configure Playwright to automatically clean the Allure results before every run,
   globalSetup: './global-setup.js',
-
+  //tests will be located in the tests folder
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -27,12 +27,22 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //  reporter: 'html',
-  reporter: [['html'],['line'],['allure-playwright']],
+  reporter: [['html'], ['line'], ['allure-playwright']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-    //   workers: 6,
-        //workers: 3, means that three worker processes will be used to run the tests in parallel. This can help speed up test execution by running multiple tests simultaneously.
-    // retries: 1,
-        //retries: 1, means that each test will be retried once if it fails. This can help reduce the impact of flaky tests and improve the overall reliability of the test suite.
+  //   workers: 6,
+  //workers: 3, means that three worker processes will be used to run the tests in parallel. This can help speed up test execution by running multiple tests simultaneously.
+  // retries: 1,
+  //retries: 1, means that each test will be retried once if it fails. This can help reduce the impact of flaky tests and improve the overall reliability of the test suite.
+  // timeout: 60 * 1000,
+  //timeout: 60 * 1000, means that each test will have a maximum execution time of 60 seconds. 
+  // If a test takes longer than this time, it will be considered as failed. 
+  // This can help prevent tests from hanging indefinitely and ensure that the test suite runs in a reasonable amount of time.
+  //expect timeout is set to 10 seconds, which means that if an assertion takes longer than 10 seconds to pass, it will be considered a failure.
+  // expect: {
+  //   timeout: 10 * 1000
+  // },
+
+
   use: {
     headless: false,
     screenshot: 'only-on-failure',
@@ -53,6 +63,11 @@ export default defineConfig({
     // trace: 'on', 
     //trace: 'on'- means that a trace will be collected for every test run, regardless of whether the test passes or fails.
     //  This can be useful for debugging and understanding how the tests interact with the application.
+    //actionTimeout is set to 15 seconds, which means that if an action (like clicking a button or filling a form) takes longer than 15 seconds to complete, 
+    // it will be considered a failure.
+    // actionTimeout: 15 * 1000,
+    //navigationTimeout means that the maximum time allowed for a page navigation to complete is set to 30 seconds.
+    // navigationTimeout: 30 * 1000
   },
 
   /* Configure projects for major browsers */
