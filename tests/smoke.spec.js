@@ -1137,8 +1137,13 @@ test('TC050: @railyatri To verify', async ({ page }) => {
     await expect(page.locator("//img[@title='RailYatri'] [@alt='RailYatri Logo']").first()).toBeVisible();
     await expect(page.getByRole('link', { name: 'RailYatri Logo' }).first()).toBeVisible();
 
+    //another way
     const railYatriLogo = page.getByAltText('RailYatri Logo').first();
     await expect(railYatriLogo).toBeVisible();
+
+    //wait & check for visible
+    await railYatriLogo.waitFor();
+await expect(railYatriLogo).toBeVisible();
 
     // 2. Verify the default radio and checkbox states.
     const pnrStatus = page.locator('#pnr');
@@ -1167,8 +1172,11 @@ test('TC050: @railyatri To verify', async ({ page }) => {
     // 6. Open the journey Date calendar & search for future date
 
     await dateField.click();
+    //Get today's date
     const tomorrow = new Date();
+    //Add 1 day, getDate() returns the day of the month:
     tomorrow.setDate(tomorrow.getDate() + 1)
+    //Get only the day & Convert it to a string
     const tomorrowDay = tomorrow.getDate().toString();
     console.log(`tomorrowDay: ${tomorrowDay}`);
     //normalize-space() is an XPath function used to remove unnecessary whitespace from text.
@@ -1181,3 +1189,16 @@ test('TC050: @railyatri To verify', async ({ page }) => {
     //regular expression - performs a pattern match
     await expect(page.locator('#trainDatepicker')).toHaveValue(/17 Sep/);
 })
+
+
+test("TC051: Drag & drop working site using Playwright", async ({ page }) => {
+    await page.goto('https://vinothqaacademy.com/mouse-event/');
+
+    const source = page.locator("#dragItem");
+    const target = page.locator("#dropZone:visible").first();
+    await target.waitFor();
+
+    await source.dragTo(target);
+
+    await expect(page.locator("#dragStatus")).toContainText("Dropped Successfully");
+});
