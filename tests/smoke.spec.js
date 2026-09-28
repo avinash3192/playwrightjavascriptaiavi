@@ -1,4 +1,4 @@
-import { test, expect, request } from '@playwright/test';
+import { test, expect, request,chromium } from '@playwright/test';
 //--imports the dotenv package
 // import dotenv from 'dotenv';
 
@@ -17,6 +17,7 @@ import logger from '../utils/logger';
 
 //tells Playwright to run the tests inside that describe block in parallel instead of one after another.
 // test.describe.configure({mode: 'parallel'});
+
 
 
 //--importing the test data from saude-demo-data.json
@@ -255,7 +256,7 @@ test("TC010: Visual testing on Playwright", async ({ page }) => {
     await page.goto("https://playwright.dev/");
     await expect(page.locator("//a[text()='Get started']")).toHaveText("Get started");
     const takeScreenShot = await page.screenshot();
-    await expect(takeScreenShot).toMatchSnapshot("playwright.png");
+    expect(takeScreenShot).toMatchSnapshot("playwright.png");
     // expect(await page.screenshot()).toMatchSnapshot("playwright.png");
 })
 
@@ -343,7 +344,7 @@ test("TC016: Handling Webtables in Playwright", async ({ browser }) => {
     await expect(page.locator("//table[@id='customers']/tbody/tr/th[text()='Company']/../th[contains(text(),'Country')]")).toHaveText('Country');
     let rows = page.locator("//table[@id='customers']//tr");
     let rowsCount = await rows.count();
-    console.log(`Total number of rows in the table are ${await rowsCount}`);
+    console.log(`Total number of rows in the table are ${rowsCount}`);
     console.log("Total number of rows in the table are : " + await rows.count());
     console.log(`Total number of rows in the table are : ${await rows.count()}`);
     // for(let i=0;i<await rows.count();i++){
@@ -371,7 +372,7 @@ test("TC016: Handling Webtables in Playwright", async ({ browser }) => {
 
     // Need to check with Sandeep on th below behaviour
     // actual xpaht = //table[@id='customers']//tr[position()>1]/../tr[position()>1]/td[2];
-    let updatedRows = await page.locator("//table[@id='customers']//tr[position()>1]");
+    let updatedRows = page.locator("//table[@id='customers']//tr[position()>1]");
     let countUpdtdRows = await updatedRows.count();
     console.log(`Total number of updated rows in the table are ${countUpdtdRows}`);
     for (let i = 0; i < countUpdtdRows; i++) {
@@ -514,7 +515,7 @@ test("TC023: Auto suggestive dropdown selection using Paytm", async ({ browser }
     await searchState.click();
     // await page.waitForTimeout(5000);
     //css selector 'div._3xI1 li' or '._3xI1 li' or 'div._3xI1 > ul > li' or '._3xI1 > ul > li'
-    let statesList = await page.locator("//div[@class='_3xI1']//li");
+    let statesList = page.locator("//div[@class='_3xI1']//li");
     await statesList.first().waitFor();
     let statesCount = await statesList.count();
     console.log(`states Count is ${statesCount}`);
@@ -605,7 +606,7 @@ test("TC025: Handling horizontal scroll from left to right in playwright", async
     await page.waitForTimeout(3000);
     //gets the current horizontal scroll position(i.e. 800) Then check expect(800).toBeGreaterThan(0);
     // "Move to the top-left → scroll 800px to the right → verify that horizontal scrolling occurred.
-    await expect(await page.evaluate(() => window.scrollX)).toBeGreaterThan(0);
+    expect(await page.evaluate(() => window.scrollX)).toBeGreaterThan(0);
 })
 // Function	Meaning
 // window.scrollTo(0, 0)	Go to an absolute position
@@ -643,7 +644,7 @@ test("TC028: Multiple tabs handling using Playwright", async ({ browser }) => {
     console.log("Page loaded");
     await page.locator("//body/div[@id='app']/header/div[@class='_3aL54']/ul[@class='_2o4VV']/li[1]").hover();
     console.log("Hover completed");
-    const waterBillLink = await page.locator("//a[normalize-space()='Water bill']");
+    const waterBillLink = page.locator("//a[normalize-space()='Water bill']");
     console.log("Water bill found");
     const [newPage] = await Promise.all([
         browsrContxt.waitForEvent('page'),
@@ -1143,7 +1144,7 @@ test('TC050: @railyatri To verify', async ({ page }) => {
 
     //wait & check for visible
     await railYatriLogo.waitFor();
-await expect(railYatriLogo).toBeVisible();
+    await expect(railYatriLogo).toBeVisible();
 
     // 2. Verify the default radio and checkbox states.
     const pnrStatus = page.locator('#pnr');
@@ -1201,4 +1202,177 @@ test("TC051: Drag & drop working site using Playwright", async ({ page }) => {
     await source.dragTo(target);
 
     await expect(page.locator("#dragStatus")).toContainText("Dropped Successfully");
+});
+
+test("TC052: File Download using Playwright", async ({ page }) => {
+    await page.goto("https://demo.automationtesting.in/FileDownload.html");
+   // Start waiting for download before clicking. Note no await.
+    const downloadPromise = page.waitForEvent('download');
+
+    // Click Download button
+
+    await page.getByRole('link', { name: 'Download', exact: true }).first().click();
+
+
+    // Get download object
+    const download = await downloadPromise;
+
+    // Save downloaded file
+    // Wait for the download process to complete and save the downloaded file somewhere.
+    await download.saveAs(
+        `downloads/${download.suggestedFilename()}`
+    );
+
+    console.log('Downloaded:', download.suggestedFilename());
+})
+
+
+test("TC053: File Download using Promise.all Playwright", async ({ page }) => {
+    await page.goto("https://demo.automationtesting.in/FileDownload.html");
+
+    // Locate the actual PDF download link
+    // await expect(page.getByText('Download').first()).toBeVisible();
+    const downloadLink = page.locator("a[href*='samplefile.pdf']");
+    await expect(downloadLink).toBeVisible({ exact: true });
+
+    // Start waiting for download and click at the same time
+
+    //   It means:
+
+    // Start listening for the download event.
+    // Click the download link.
+    // Wait until the download event occurs.
+    // Get the Download object.
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        downloadLink.click()
+    ])
+    // Save the downloaded file
+    await download.saveAs(`downloads/${download.suggestedFilename()}`
+    );
+    console.log("Downloaded:", download.suggestedFilename());
+
+})
+
+test("TC054: File Download another link using Promise.all Playwright", async ({ page }) => {
+    await page.goto("https://practice-automation.com/file-download/");
+    await expect(page.getByText('Download').first()).toBeVisible();
+    const downloadLink = page.locator("a[rel='nofollow']");
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        downloadLink.click()
+    ])
+
+    await download.saveAs(`downloads/${download.suggestedFilename()}`)
+    console.log(`Downloaded File Name is : ${download.suggestedFilename()}`);
+})
+
+
+test("TC055: Password protected File Download another link using Promise.all Playwright", async ({ page }) => {
+    await page.goto("https://practice-automation.com/file-download/");
+    await expect(page.getByText('Download').first()).toBeVisible();
+    await page.locator("a[href='#unlock']").click();
+    // Correct iframe selector
+    const downloadFrame = page.frameLocator("iframe[id='wpdm-lock-frame']");
+    //remove the dynamic ID locator - is not a good locator because 921 appears to be dynamically generated.
+    // await expect(downloadFrame.locator("span#enter_pass_label_921")).toBeVisible();
+    // Verify password form inside iframe
+    await expect(downloadFrame.getByText("Enter Correct Password to Download")).toBeVisible();
+    // Enter password
+    await downloadFrame.getByPlaceholder('Enter Password').fill('automateNow');
+    //or await downloadFrame.getByRole('textbox').fill('automateNow');
+    //Since the actual HTML is: <input type="submit" value="Submit"> the element is not a <button>
+    //    const submitDownload = downloadFrame.getByRole('button', {name: 'SUBMIT'});
+    const submitDownload = downloadFrame.locator('input[type="submit"]');
+
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        submitDownload.click()
+    ])
+    await download.saveAs(`downloads/${download.suggestedFilename()}`)
+    console.log(`Downloaded File Name is : ${download.suggestedFilename()}`);
+    //    //remove the dynamic ID locator - is not a good locator because 921 appears to be dynamically generated.
+    // await expect(downloadFrame.locator("valid_pass_label_921")).toBeVisible();
+    // Verify success message
+    await expect(downloadFrame.getByText("Your Download Link is Ready")).toBeVisible();
+
+    //const downloadLink = page.locator('a:has-text("Download")');
+    const downloadLink = downloadFrame.getByRole('link', { name: 'Download', exact: true });
+    const [downloadagain] = await Promise.all([
+        page.waitForEvent('download'),
+        downloadLink.click()
+    ])
+    await downloadagain.saveAs(`downloads/${downloadagain.suggestedFilename()}`)
+    console.log(`Downloaded File again & Name is : ${downloadagain.suggestedFilename()}`);
+
+})
+
+
+test("TC055: @download text File Download another link using Promise.all Playwright", async ({ page }) => {
+    await page.goto("https://demo.automationtesting.in/FileDownload.html");
+    await expect(page).toHaveURL(/automationtesting/);
+    console.log( page.url());
+    console.log(await page.title());
+    await expect(page.getByText('Generated Text File to Download').first()).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Generate File' }).first()).toBeDisabled()
+    //pressSequentially() generates individual keyboard/input events, 
+    // which can matter for older/demo pages whose JavaScript listens for typing rather than a programmatic value change.
+    await page.locator("textarea#textbox").pressSequentially("My Name is Avinash B");
+    console.log(await page.locator("textarea#textbox").inputValue());
+    //or
+    // await page.locator("textarea#textbox").fill("My Name is Avinash B");
+    // await page.keyboard.press("Tab");
+    await expect(page.getByRole('button', { name: 'Generate File', excat: true }).first()).toBeEnabled()
+    await expect(page.locator('button#createTxt')).toBeEnabled();
+    await page.locator('button#createTxt').click();
+    const downloadLink = page.locator('a#link-to-download');
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        downloadLink.click()
+    ])
+    await download.saveAs(`downloads/${download.suggestedFilename()}`);
+    console.log(`Downloaded File Name is : ${download.suggestedFilename()}`);
+})  
+
+
+test("TC056: @browser launch using Playwright", async () => {
+const browser = await chromium.launch();
+const context = await browser.newContext();
+const page = await context.newPage();
+await page.goto('https://demo.automationtesting.in/FileDownload.html');
+await page.waitForURL(/automationtesting/);
+await expect(page.locator("img[src='original.png']")).toBeVisible({ timeout: 5000 });
+await page.getByText('Automation Demo Site').waitFor({ state: 'visible', timeout: 2000 });
+
+  await page.screenshot({ path: 'screenshots/screenshot.png',fullPage: true});
+  await browser.close();
+})  
+
+
+test('TC057: @routewait page.route() + waitForResponse() + Promise.all()', async ({ page }) => {
+
+    // Intercept the API request
+    await page.route('**/api/users*', async route => {
+        console.log('Request intercepted:', route.request().url());
+
+        // Continue the request
+        await route.continue();
+    });
+
+    // Wait for API response + trigger the request together
+    const [response] = await Promise.all([
+        page.waitForResponse(response =>
+            response.url().includes('/api/users') &&
+            response.request().method() === 'GET' &&
+            response.status() === 200
+        ),
+
+        page.goto('https://reqres.in/api/users?page=2')
+    ]);
+
+    // Validate response
+    console.log('Response status:', response.status());
+    console.log('Response URL:', response.url());
+
+    expect(response.status()).toBe(200);
 });

@@ -774,7 +774,7 @@ let nonOccChar = "";
 console.log(`Given Array is: ${givenArray}`);
 
 for(let arr of givenArray){
-    if(givenArray.indexOf(arr) == givenArray.lastIndexOf(arr)){
+    if(givenArray.indexOf(arr) === givenArray.lastIndexOf(arr)){
         nonOccChar = arr;
         break; // Stops immediately at the first unique character ('C')
     }

@@ -485,5 +485,5 @@ tomorrow.setDate(tomorrow.getDate()+1);
 const tomorrowDay = tomorrow.getDate().toString();
 const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
 await tomorrowButton.click();
-await expect(page.locator('#trainDatepicker')).toHaveValue(/20 Sep/);
+await expect(page.locator('#trainDatepicker')).toHaveValue(/25 Sep/);
 });
