@@ -21,6 +21,7 @@ import logger from '../utils/logger';
 
 
 //--importing the test data from saude-demo-data.json
+//From tests/smoke.spec.js go one level up from tests, then into testdata
 import sauceDemoData from '../testdata/saude-demo-data.json';
 
 //--importing the excelRead function from excelUtil.js
@@ -1375,4 +1376,113 @@ test('TC057: @routewait page.route() + waitForResponse() + Promise.all()', async
     console.log('Response URL:', response.url());
 
     expect(response.status()).toBe(200);
+});
+
+test('TC058: @popup Handle popup window using playwright', async ({ page }) => {
+  await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
+  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+await page.waitForSelector("#openPlaywright") ;
+const popupLink = page.getByRole('button', {name: 'Open SpeedwayTech Popup'});
+
+  // 1. Set up the event listener and the action using Promise.all
+  const [popup] = await Promise.all([
+    page.waitForEvent('popup'),
+    popupLink.click()
+  ]);
+
+  // 2. Interact with the popup just like a normal page
+  await popup.waitForLoadState();
+  console.log(await popup.title());
+  
+  // Clean up
+  await popup.close();
+});
+
+
+test('TC059: @childwindow Handle child window using playwright', async ({ page }) => {
+  await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
+  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+await page.waitForSelector("#openPlaywright") ;
+const childWindow = page.getByRole('button', {name: 'Open SpeedwayTech Child Window'});
+
+  // 1. Set up the event listener and the action using Promise.all
+  const [childPage] = await Promise.all([
+    page.waitForEvent('popup'),
+    childWindow.click()
+  ]);
+
+  // 2. Interact with the child window just like a normal page
+  await childPage.waitForLoadState();
+  console.log(await childPage.title());
+  await childPage.getByRole('button',{name:'Close Child Window'}).click();
+});
+
+
+test('TC060: @twochildwindow Open Two Child Windows using playwright', async ({ browser }) => {
+const context = await browser.newContext();
+const page = await context.newPage();
+
+  await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
+  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+await page.waitForSelector("#openPlaywright") ;
+
+const childWindowOne = page.getByRole('button', {name: 'Open Child Window 1'});
+const childWindowTwo = page.getByRole('button', {name: 'Open Child Window 2'});
+
+
+  // 1. Set up the event listener and the action using Promise.all
+  const [childPageOne] = await Promise.all([
+    context.waitForEvent('page'),
+    childWindowOne.click(),
+  ]);
+
+    // 1. Set up the event listener and the action using Promise.all
+  const [childPageTwo] = await Promise.all([
+    context.waitForEvent('page'),
+    childWindowTwo.click(),
+  ]);
+
+  // 2. Interact with the child page 1 just like a normal page
+  await childPageOne.waitForLoadState();
+  console.log(await childPageOne.title());
+  await childPageOne.getByRole('button',{name:'Close Window 1'}).click();
+
+  
+// 2. Interact with the child page 2 just like a normal page
+  await childPageTwo.waitForLoadState();
+  console.log(await childPageTwo.title());
+  await childPageTwo.getByRole('button',{name:'Close Window 2'}).click();
+});
+
+
+test('TC059: @frame page.frame() for named frames using playwright', async ({ page }) => {
+  await page.goto('https://letcode.in/frame');
+  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+await page.waitForSelector("//h1[text()='Frame']") ;
+const frameLoc = page.frame('firstFr');
+const innerFrame = frameLoc.frameLocator("iframe[title='Inner Frame']");
+
+const nameLoc =  frameLoc.getByPlaceholder("Enter name");
+await nameLoc.fill('Avinash');
+
+let enteredText = await nameLoc.inputValue();
+console.log(enteredText);
+
+await frameLoc.getByPlaceholder("Enter email").fill('B');
+
+
+
+let messageText = await frameLoc.locator("div[class*='bg-emerald-50']").textContent();
+console.log(messageText);
+expect(messageText).toContain(enteredText);
+if(messageText?.includes(enteredText)){
+    console.log("value matches");
+}
+else {
+console.log("value don't match");
+}
+
+await innerFrame.getByPlaceholder("Enter email").fill('avi.@gmail.com');
+await page.locator("a[href*='video']").click();
+
 });

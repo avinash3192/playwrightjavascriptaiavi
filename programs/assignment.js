@@ -785,3 +785,35 @@ if(nonOccChar === ""){
 } else {   
     console.log(`First repeating character in the given array is: ${nonOccChar}`);
 }
+
+
+//Program 21: WAP to count each character and print it in the format 6a10b3d3f
+let inpString = 'aaabbdddbbaaabbfbbbfbf';
+//This creates an empty JavaScript object.
+// count = {
+//   a: 6,
+//   b: 10,
+//   d: 3,
+//   f: 3
+// };
+let count = {};
+
+for (let char of inpString) {
+
+    // When the first character is 'a':
+    // count['a'] // undefined
+    // (undefined || 0) + 1
+    //     ↓
+    //    0 + 1
+    //     ↓
+    //     1
+  count[char] = (count[char] || 0) + 1;
+}
+
+let result = '';
+
+for (let char in count) {
+  result += count[char] + char;   
+}
+
+console.log(result);

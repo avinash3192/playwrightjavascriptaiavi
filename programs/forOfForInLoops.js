@@ -90,3 +90,68 @@ for(let aj in obj2){
 // for(let aj1 of obj3){
 //     console.log(aj1);
 // }
+
+
+// for...of is used for iterable values like arrays and strings. A plain object {} is not iterable.
+
+// You have:
+
+let array = {
+  a: 'Avi',
+  b: 'Rao',
+  c: 'King'
+};
+
+for (let ch of array) {
+  console.log(ch);
+}
+
+// This gives:
+
+// TypeError: array is not iterable
+// If you want the values
+
+// Use Object.values():
+
+for (let ch of Object.values(array)) {
+  console.log(ch);
+}
+
+// Output:
+
+// Avi
+// Rao
+// King
+// If you want the keys
+
+// Use Object.keys():
+
+for (let ch of Object.keys(array)) {
+  console.log(ch);
+}
+
+// Output:
+
+// a
+// b
+// c
+// If you want both key and value
+
+// Use Object.entries():
+
+for (let [key, value] of Object.entries(array)) {
+  console.log(key, value);
+}
+
+// Output:
+
+// a Avi
+// b Rao
+// c King
+// Important interview point
+// Syntax	Works with object?	Purpose
+// for...of object	❌	Object isn't iterable
+// for...of Object.keys(object)	✅	Get keys
+// for...of Object.values(object)	✅	Get values
+// for...of Object.entries(object)	✅	Get key + value
+// for...in object	✅	Iterate keys
