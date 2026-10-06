@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
-export class LoginPage {
+////for fixture use export default class LoginPage orelse remove default
+export default class LoginPage {
     //Region 1
     constructor(page) {
         this.page = page;

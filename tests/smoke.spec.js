@@ -31,7 +31,7 @@ import { excelRead } from '../utils/excelUtil.js';
 import { LoginPage } from '../POM/LoginPage.js';
 
 import { getValidUser } from '../utils/excelUtil.js';
-
+import { selectDropDownOption } from '../utils/dropdownUtils.js';
 // Named async function
 // test.only("Login to amazon application", async function doValidLogin({page}){
 //   await page.goto("https://www.amazon.com");
@@ -1351,6 +1351,10 @@ await page.getByText('Automation Demo Site').waitFor({ state: 'visible', timeout
 
 
 test('TC057: @routewait page.route() + waitForResponse() + Promise.all()', async ({ page }) => {
+// page.route() → intercept/modify a network request
+// page.waitForResponse() → wait for a specific API response
+// page.route() is used to intercept network requests, where we can continue, modify, abort, or mock the request.
+// page.waitForResponse() is used to wait for a specific API response and validate its status, URL, headers, or response body.
 
     // Intercept the API request
     await page.route('**/api/users*', async route => {
@@ -1455,7 +1459,7 @@ const childWindowTwo = page.getByRole('button', {name: 'Open Child Window 2'});
 });
 
 
-test('TC059: @frame page.frame() for named frames using playwright', async ({ page }) => {
+test('TC061: @frame page.frame() for named frames using playwright', async ({ page }) => {
   await page.goto('https://letcode.in/frame');
   //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
 await page.waitForSelector("//h1[text()='Frame']") ;
@@ -1485,4 +1489,29 @@ console.log("value don't match");
 await innerFrame.getByPlaceholder("Enter email").fill('avi.@gmail.com');
 await page.locator("a[href*='video']").click();
 
+});
+
+test('TC062: @utilselectdropdown Select product sort option', async ({ page }) => {
+
+    await page.goto('https://www.saucedemo.com/');
+    logger.info("Navigated to Sauce Demo");
+    // Login
+    await page.getByPlaceholder('Username').fill('standard_user');
+    await page.getByPlaceholder('Password').fill('secret_sauce');
+    await page.getByRole('button', { name: 'Login' }).click();
+    logger.info("Logged in successfully");
+
+    // Locate dropdown
+    //<select class="product_sort_container" aria-label="Sort products">
+    //works because aria-label provides the accessible label for the <select> element.
+    const sortDropdown = page.getByLabel('Sort products');
+    logger.info("Located sort dropdown");
+
+    // Use utility function
+    await selectDropDownOption(sortDropdown, 'lohi');
+    logger.info("Selected 'lohi' option");
+
+    // Validation
+    await expect(sortDropdown).toHaveValue('lohi');
+    logger.info("Validation passed: Sort option is correctly selected");
 });
