@@ -1,4 +1,4 @@
-import { test, expect, request,chromium } from '@playwright/test';
+import { test, expect, request, chromium } from '@playwright/test';
 //--imports the dotenv package
 // import dotenv from 'dotenv';
 
@@ -1207,7 +1207,7 @@ test("TC051: Drag & drop working site using Playwright", async ({ page }) => {
 
 test("TC052: File Download using Playwright", async ({ page }) => {
     await page.goto("https://demo.automationtesting.in/FileDownload.html");
-   // Start waiting for download before clicking. Note no await.
+    // Start waiting for download before clicking. Note no await.
     const downloadPromise = page.waitForEvent('download');
 
     // Click Download button
@@ -1312,7 +1312,7 @@ test("TC055: Password protected File Download another link using Promise.all Pla
 test("TC055: @download text File Download another link using Promise.all Playwright", async ({ page }) => {
     await page.goto("https://demo.automationtesting.in/FileDownload.html");
     await expect(page).toHaveURL(/automationtesting/);
-    console.log( page.url());
+    console.log(page.url());
     console.log(await page.title());
     await expect(page.getByText('Generated Text File to Download').first()).toBeVisible();
     await expect(page.getByRole('button', { name: 'Generate File' }).first()).toBeDisabled()
@@ -1333,28 +1333,28 @@ test("TC055: @download text File Download another link using Promise.all Playwri
     ])
     await download.saveAs(`downloads/${download.suggestedFilename()}`);
     console.log(`Downloaded File Name is : ${download.suggestedFilename()}`);
-})  
+})
 
 
 test("TC056: @browser launch using Playwright", async () => {
-const browser = await chromium.launch();
-const context = await browser.newContext();
-const page = await context.newPage();
-await page.goto('https://demo.automationtesting.in/FileDownload.html');
-await page.waitForURL(/automationtesting/);
-await expect(page.locator("img[src='original.png']")).toBeVisible({ timeout: 5000 });
-await page.getByText('Automation Demo Site').waitFor({ state: 'visible', timeout: 2000 });
+    const browser = await chromium.launch();
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto('https://demo.automationtesting.in/FileDownload.html');
+    await page.waitForURL(/automationtesting/);
+    await expect(page.locator("img[src='original.png']")).toBeVisible({ timeout: 5000 });
+    await page.getByText('Automation Demo Site').waitFor({ state: 'visible', timeout: 2000 });
 
-  await page.screenshot({ path: 'screenshots/screenshot.png',fullPage: true});
-  await browser.close();
-})  
+    await page.screenshot({ path: 'screenshots/screenshot.png', fullPage: true });
+    await browser.close();
+})
 
 
 test('TC057: @routewait page.route() + waitForResponse() + Promise.all()', async ({ page }) => {
-// page.route() → intercept/modify a network request
-// page.waitForResponse() → wait for a specific API response
-// page.route() is used to intercept network requests, where we can continue, modify, abort, or mock the request.
-// page.waitForResponse() is used to wait for a specific API response and validate its status, URL, headers, or response body.
+    // page.route() → intercept/modify a network request
+    // page.waitForResponse() → wait for a specific API response
+    // page.route() is used to intercept network requests, where we can continue, modify, abort, or mock the request.
+    // page.waitForResponse() is used to wait for a specific API response and validate its status, URL, headers, or response body.
 
     // Intercept the API request
     await page.route('**/api/users*', async route => {
@@ -1383,111 +1383,111 @@ test('TC057: @routewait page.route() + waitForResponse() + Promise.all()', async
 });
 
 test('TC058: @popup Handle popup window using playwright', async ({ page }) => {
-  await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
-  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
-await page.waitForSelector("#openPlaywright") ;
-const popupLink = page.getByRole('button', {name: 'Open SpeedwayTech Popup'});
+    await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
+    //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+    await page.waitForSelector("#openPlaywright");
+    const popupLink = page.getByRole('button', { name: 'Open SpeedwayTech Popup' });
 
-  // 1. Set up the event listener and the action using Promise.all
-  const [popup] = await Promise.all([
-    page.waitForEvent('popup'),
-    popupLink.click()
-  ]);
+    // 1. Set up the event listener and the action using Promise.all
+    const [popup] = await Promise.all([
+        page.waitForEvent('popup'),
+        popupLink.click()
+    ]);
 
-  // 2. Interact with the popup just like a normal page
-  await popup.waitForLoadState();
-  console.log(await popup.title());
-  
-  // Clean up
-  await popup.close();
+    // 2. Interact with the popup just like a normal page
+    await popup.waitForLoadState();
+    console.log(await popup.title());
+
+    // Clean up
+    await popup.close();
 });
 
 
 test('TC059: @childwindow Handle child window using playwright', async ({ page }) => {
-  await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
-  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
-await page.waitForSelector("#openPlaywright") ;
-const childWindow = page.getByRole('button', {name: 'Open SpeedwayTech Child Window'});
+    await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
+    //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+    await page.waitForSelector("#openPlaywright");
+    const childWindow = page.getByRole('button', { name: 'Open SpeedwayTech Child Window' });
 
-  // 1. Set up the event listener and the action using Promise.all
-  const [childPage] = await Promise.all([
-    page.waitForEvent('popup'),
-    childWindow.click()
-  ]);
+    // 1. Set up the event listener and the action using Promise.all
+    const [childPage] = await Promise.all([
+        page.waitForEvent('popup'),
+        childWindow.click()
+    ]);
 
-  // 2. Interact with the child window just like a normal page
-  await childPage.waitForLoadState();
-  console.log(await childPage.title());
-  await childPage.getByRole('button',{name:'Close Child Window'}).click();
+    // 2. Interact with the child window just like a normal page
+    await childPage.waitForLoadState();
+    console.log(await childPage.title());
+    await childPage.getByRole('button', { name: 'Close Child Window' }).click();
 });
 
 
 test('TC060: @twochildwindow Open Two Child Windows using playwright', async ({ browser }) => {
-const context = await browser.newContext();
-const page = await context.newPage();
+    const context = await browser.newContext();
+    const page = await context.newPage();
 
-  await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
-  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
-await page.waitForSelector("#openPlaywright") ;
+    await page.goto('https://speedwaytech.co.in/playwrightMultipleWindows.html');
+    //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+    await page.waitForSelector("#openPlaywright");
 
-const childWindowOne = page.getByRole('button', {name: 'Open Child Window 1'});
-const childWindowTwo = page.getByRole('button', {name: 'Open Child Window 2'});
+    const childWindowOne = page.getByRole('button', { name: 'Open Child Window 1' });
+    const childWindowTwo = page.getByRole('button', { name: 'Open Child Window 2' });
 
-
-  // 1. Set up the event listener and the action using Promise.all
-  const [childPageOne] = await Promise.all([
-    context.waitForEvent('page'),
-    childWindowOne.click(),
-  ]);
 
     // 1. Set up the event listener and the action using Promise.all
-  const [childPageTwo] = await Promise.all([
-    context.waitForEvent('page'),
-    childWindowTwo.click(),
-  ]);
+    const [childPageOne] = await Promise.all([
+        context.waitForEvent('page'),
+        childWindowOne.click(),
+    ]);
 
-  // 2. Interact with the child page 1 just like a normal page
-  await childPageOne.waitForLoadState();
-  console.log(await childPageOne.title());
-  await childPageOne.getByRole('button',{name:'Close Window 1'}).click();
+    // 1. Set up the event listener and the action using Promise.all
+    const [childPageTwo] = await Promise.all([
+        context.waitForEvent('page'),
+        childWindowTwo.click(),
+    ]);
 
-  
-// 2. Interact with the child page 2 just like a normal page
-  await childPageTwo.waitForLoadState();
-  console.log(await childPageTwo.title());
-  await childPageTwo.getByRole('button',{name:'Close Window 2'}).click();
+    // 2. Interact with the child page 1 just like a normal page
+    await childPageOne.waitForLoadState();
+    console.log(await childPageOne.title());
+    await childPageOne.getByRole('button', { name: 'Close Window 1' }).click();
+
+
+    // 2. Interact with the child page 2 just like a normal page
+    await childPageTwo.waitForLoadState();
+    console.log(await childPageTwo.title());
+    await childPageTwo.getByRole('button', { name: 'Close Window 2' }).click();
 });
 
 
 test('TC061: @frame page.frame() for named frames using playwright', async ({ page }) => {
-  await page.goto('https://letcode.in/frame');
-  //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
-await page.waitForSelector("//h1[text()='Frame']") ;
-const frameLoc = page.frame('firstFr');
-const innerFrame = frameLoc.frameLocator("iframe[title='Inner Frame']");
+    await page.goto('https://letcode.in/frame');
+    //page.waitForSelector() is a method that pauses test execution until a specified element appears in the DOM or reaches a specific state
+    await page.waitForSelector("//h1[text()='Frame']");
+    const frameLoc = page.frame('firstFr');
+    const innerFrame = frameLoc.frameLocator("iframe[title='Inner Frame']");
 
-const nameLoc =  frameLoc.getByPlaceholder("Enter name");
-await nameLoc.fill('Avinash');
+    const nameLoc = frameLoc.getByPlaceholder("Enter name");
+    await nameLoc.fill('Avinash');
 
-let enteredText = await nameLoc.inputValue();
-console.log(enteredText);
+    let enteredText = await nameLoc.inputValue();
+    console.log(enteredText);
 
-await frameLoc.getByPlaceholder("Enter email").fill('B');
+    await frameLoc.getByPlaceholder("Enter email").fill('B');
 
 
 
-let messageText = await frameLoc.locator("div[class*='bg-emerald-50']").textContent();
-console.log(messageText);
-expect(messageText).toContain(enteredText);
-if(messageText?.includes(enteredText)){
-    console.log("value matches");
-}
-else {
-console.log("value don't match");
-}
+    let messageText = await frameLoc.locator("div[class*='bg-emerald-50']").textContent();
+    console.log(messageText);
+    expect(messageText).toContain(enteredText);
+    if (messageText?.includes(enteredText)) {
+        console.log("value matches");
+    }
+    else {
+        console.log("value don't match");
+    }
 
-await innerFrame.getByPlaceholder("Enter email").fill('avi.@gmail.com');
-await page.locator("a[href*='video']").click();
+    await innerFrame.getByPlaceholder("Enter email").fill('avi.@gmail.com');
+    await page.locator("a[href*='video']").click();
 
 });
 
@@ -1514,4 +1514,131 @@ test('TC062: @utilselectdropdown Select product sort option', async ({ page }) =
     // Validation
     await expect(sortDropdown).toHaveValue('lohi');
     logger.info("Validation passed: Sort option is correctly selected");
+});
+
+test('TC063: @fulfill route.fulfill + waitForResponse + Promise.all', async ({ page }) => {
+
+    // Intercept /api/users request
+    await page.route('**/api/users**', async route => {
+
+        console.log('Intercepted:', route.request().url());
+
+        // Mock the API response
+        await route.fulfill({
+            status: 200,
+            contentType: 'application/json',
+            body: JSON.stringify({
+                page: 1,
+                data: [
+                    { id: 1, first_name: 'Avinash' },
+                    { id: 2, first_name: 'Test User' }
+                ]
+            })
+        });
+    });
+
+    // Wait for response and trigger request simultaneously
+    const [response] = await Promise.all([
+        page.waitForResponse(response =>
+            response.url().includes('/api/users') &&
+            response.request().method() === 'GET' &&
+            response.status() === 200
+        ),
+
+        page.goto('https://reqres.in/api/users?page=2')
+    ]);
+
+    const body = await response.json();
+
+    console.log('Status:', response.status());
+    console.log('Body:', body);
+
+    expect(response.status()).toBe(200);
+    expect(body.data[0].first_name).toBe('Avinash');
+});
+
+
+test('TC064: @APIVAL Modify request header', async ({ page }) => {
+
+    await page.route('**/*', async route => {
+
+        const request = route.request();
+
+        // Modify only the request you want
+        if (request.url().includes('inventory.html')) {
+
+            console.log('Request intercepted:', request.url());
+
+            await route.continue({
+                headers: {
+                    ...request.headers(),
+                    'x-test-mode': 'true'
+                }
+            });
+
+        } else {
+            await route.continue();
+        }
+    });
+
+    await page.goto('https://www.saucedemo.com/');
+
+    await page.getByLabel('Username').fill('standard_user');
+    await page.getByLabel('Password').fill('secret_sauce');
+
+    await page.getByRole('button', { name: 'Login' }).click();
+
+    // Validate final UI
+    await expect(page.getByText('Swag Labs')).toBeVisible();
+
+    console.log('Login successful');
+});
+
+test('TC065: @paymentfail Mock Payment API failure', async ({ page }) => {
+
+    await page.route('**/status/500', async route => {
+
+
+        console.log('Payment API intercepted', route.request().url());
+
+        // Fulfill the request directly inside the block using the shorthand 'json' property instead of json.stringify()
+        await route.fulfill({
+            status: 500,
+            json: {
+                error: 'Payment service unavailable'
+            }
+        });
+    });
+
+    const [response] = await Promise.all([
+
+        page.waitForResponse(response =>
+            response.url().includes('/status/500') &&
+            response.request().method() === 'GET' &&
+            response.status() === 500
+        ),
+
+        page.goto('https://httpbin.org/status/500')
+    ]);
+
+    expect(response.status()).toBe(500);
+
+    console.log('Status:', response.status());
+});
+
+test('TC066: @routeabort Simulate network failure', async ({ page }) => {
+
+    await page.route('**/status/500', async route => {
+        console.log('Request intercepted:', route.request().url());
+
+        await route.abort('failed');
+    });
+
+    const error = await page
+        .goto('https://httpbin.org/status/500')
+        .catch(error => error);
+
+    expect(error.message).toContain('net::ERR_FAILED');
+
+    console.log('Network failure simulated successfully');
 });
