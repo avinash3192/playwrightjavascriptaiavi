@@ -547,7 +547,7 @@ test("TC023: Auto suggestive dropdown selection using Paytm", async ({ browser }
 // await expect(autoSuggestions.first()).toBeVisible();
 
 // If you only need to wait for it before performing an action, waitFor() is fine:
-// await autoSuggestions.first().waitFor();
+// await autoSuggestions.first().waitFor({state: 'visible'});
 // await autoSuggestions.first().click();
 
 test("TC024: Handling vertical scroll or scroll up/down in playwright using css selector", async ({ page }) => {
