@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 ////for fixture use export default class LoginPage orelse remove default
-export default class LoginPage {
+export class LoginPage {
     //Region 1
     constructor(page) {
         this.page = page;
@@ -17,7 +17,7 @@ export default class LoginPage {
         await this.page.goto(process.env.BaseUrl);
     }
 
-    async enterUsername() {
+    async enterUsernamee() {
         await this.username.fill(process.env.user_name);
     }
 
@@ -25,7 +25,7 @@ export default class LoginPage {
         await this.username.fill(username);
     }
 
-    async enterPassword() {
+    async enterPasswordd() {
         await this.password.fill(process.env.password);
     }
 

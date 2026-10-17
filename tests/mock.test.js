@@ -438,52 +438,52 @@ test.afterAll(() =>{
 logger.info("Test suite execution started");
 })
 
-test('TC050: @mock railyatri To verify', async({page}) =>
-{
-    await page.goto('https://www.railyatri.in/');
+// test('TC050: @mock railyatri To verify', async({page}) =>
+// {
+//     await page.goto('https://www.railyatri.in/');
 
-    await expect(page).toHaveTitle(/RailYatri/);
-    await expect(page.locator("//img[@title='RailYatri'] [@alt='RailYatri Logo']").first()).toBeVisible();
+//     await expect(page).toHaveTitle(/RailYatri/);
+//     await expect(page.locator("//img[@title='RailYatri'] [@alt='RailYatri Logo']").first()).toBeVisible();
 
-        //waitFor() returns void, not the Locator.
-    //const railYatriLogo = await page.getByAltText('RailYatri Logo').first().waitFor();
-
-
-    const railYatriLogo =  page.getByAltText('RailYatri Logo').first();
-    await railYatriLogo.waitFor();
-await expect(railYatriLogo).toBeVisible();
+//         //waitFor() returns void, not the Locator.
+//     //const railYatriLogo = await page.getByAltText('RailYatri Logo').first().waitFor();
 
 
-// 2. Verify the default radio and checkbox states.
-const pnrStatus = page.locator('#pnr');
-const trainStatus = page.locator('#train-number');
-await expect(pnrStatus).toBeChecked();
-await expect(trainStatus).not.toBeChecked();
-
- // 3. Select Train Status and all four Quick Filters.
-await trainStatus.check();
-await expect(trainStatus).toBeChecked();
-
-// 4. Clear AC Only and Ladies Quota while retaining the other filters.
-await page.locator("//label[@for='aconly']").check();
-await page.locator("//label[@for='ladiesquota']").click();
-
- // 6. Open the journey Date calendar & search for hard coded date
-const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
-await dateField.click();
-
-await page.locator("//button[text()='20']").click();
-await page.pause();
-
-await expect(page.locator('#trainDatepicker')).toHaveValue('20 Sep, Sun');
-await expect(page.locator('#trainDatepicker')).toHaveValue(/20 Sep/);
+//     const railYatriLogo =  page.getByAltText('RailYatri Logo').first();
+//     await railYatriLogo.waitFor();
+// await expect(railYatriLogo).toBeVisible();
 
 
-await dateField.click();
-const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate()+1);
-const tomorrowDay = tomorrow.getDate().toString();
-const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
-await tomorrowButton.click();
-await expect(page.locator('#trainDatepicker')).toHaveValue(/25 Sep/);
-});
+// // 2. Verify the default radio and checkbox states.
+// const pnrStatus = page.locator('#pnr');
+// const trainStatus = page.locator('#train-number');
+// await expect(pnrStatus).toBeChecked();
+// await expect(trainStatus).not.toBeChecked();
+
+//  // 3. Select Train Status and all four Quick Filters.
+// await trainStatus.check();
+// await expect(trainStatus).toBeChecked();
+
+// // 4. Clear AC Only and Ladies Quota while retaining the other filters.
+// await page.locator("//label[@for='aconly']").check();
+// await page.locator("//label[@for='ladiesquota']").click();
+
+//  // 6. Open the journey Date calendar & search for hard coded date
+// const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
+// await dateField.click();
+
+// await page.locator("//button[text()='20']").click();
+// await page.pause();
+
+// await expect(page.locator('#trainDatepicker')).toHaveValue('20 Sep, Sun');
+// await expect(page.locator('#trainDatepicker')).toHaveValue(/20 Sep/);
+
+
+// await dateField.click();
+// const tomorrow = new Date();
+// tomorrow.setDate(tomorrow.getDate()+1);
+// const tomorrowDay = tomorrow.getDate().toString();
+// const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
+// await tomorrowButton.click();
+// await expect(page.locator('#trainDatepicker')).toHaveValue(/25 Sep/);
+// });

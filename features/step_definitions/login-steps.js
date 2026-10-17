@@ -26,11 +26,11 @@ Given('I am in login page of saucedemo', async function(){
 
 
 When('I enter valid username', async function(){
-    await this.loginPage.enterUsername();
+    await this.loginPage.enterUsernamee();
 });
 
 When('I enter valid password', async function(){
-    await this.loginPage.enterPassword();
+    await this.loginPage.enterPasswordd();
     await this.page.waitForTimeout(5000);
 });
 

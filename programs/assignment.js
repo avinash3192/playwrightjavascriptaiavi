@@ -202,7 +202,7 @@ let reversed = numb
 console.log(reversed); // "9856"
 
 
-//Program 12 - WAP to count number of vowels in given string
+//Program 11 - WAP to count number of vowels in given string
 let vowelString = "My name is avinash";
 let lowVowelString = vowelString.toLowerCase();
 let count = 0;
@@ -817,3 +817,36 @@ for (let char in count) {
 }
 
 console.log(result);
+
+//Program 22:fibnocci series
+// 0,1,1,2,3,5,8,13.....................
+// 1,3,5,7...........
+let n1 = 0, n2 = 1, n3;
+    console.log(n1);
+    console.log(n2);
+for(let i=1;i<=5;i++){
+    n3 = n1+n2;
+    n1=n2;
+    n2=n3;
+    console.log(n3);
+}
+
+//Program 23:Swapping numbers
+//swappig numbers with using third variable
+let r = 10;
+let s = 20;
+console.log(`Before swapping r=${r} and s=${s}`);
+let t = r;
+r=s;
+s=t;
+console.log(`After swapping r=${r} and s=${s}`);
+
+
+//swap numbers without third variable
+let p = 50;
+let q = 60;
+console.log(`Before swapping p=${p} and q=${q}`);
+p=p+q; //10+20 = 30
+q=p-q; //30-20 = 10
+p=p-q; //30-10 = 20
+console.log(`After swapping p=${p} and q=${q}`);

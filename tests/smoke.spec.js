@@ -13,12 +13,13 @@ import 'dotenv/config';
 // process.env.BaseUrl
 //  ↓
 // page.goto(process.env.BaseUrl)
+//.. → go one folder up from tests, utils → enter the utils folder,logger → load logger.js
 import logger from '../utils/logger';
 
 //tells Playwright to run the tests inside that describe block in parallel instead of one after another.
 // test.describe.configure({mode: 'parallel'});
 
-
+import {loginHelper} from '../utils/loginHelper.js'
 
 //--importing the test data from saude-demo-data.json
 //From tests/smoke.spec.js go one level up from tests, then into testdata
@@ -31,7 +32,8 @@ import { excelRead } from '../utils/excelUtil.js';
 import { LoginPage } from '../POM/LoginPage.js';
 
 import { getValidUser } from '../utils/excelUtil.js';
-import { selectDropDownOption } from '../utils/dropdownUtils.js';
+import { selectDropDownOption } from '../utils/reusableUtils.js';
+import { getTomorrowDate } from '../utils/reusableUtils.js';
 // Named async function
 // test.only("Login to amazon application", async function doValidLogin({page}){
 //   await page.goto("https://www.amazon.com");
@@ -314,7 +316,7 @@ test("TC014: Handling Java script confirm pop-up - cancel", async ({ browser }) 
     await page.locator("//button[contains(@onclick,'jsConfirm')]").click();
     await expect(page.locator("//p[text() = 'You clicked: Cancel']")).toHaveText("You clicked: Cancel");
     await expect(page.locator("//p[@id= 'result']")).toContainText("Cancel");
-})
+})  
 
 
 test("TC015: Handling Java script prompt alert", async ({ browser }) => {
@@ -585,14 +587,16 @@ test("TC024: Handling vertical scroll or scroll up/down in playwright using css 
 //       ↑
 //     300 px
 
-test("TC025: Handling horizontal scroll from left to right in playwright", async ({ page }) => {
+test("TC025: @scroll Handling horizontal scroll from left to right in playwright", async ({ page }) => {
     await page.goto("data:text/html,<html><body style='margin:0'><div style='width:2000px;height:200px;background:linear-gradient(to right, red, blue);'></div></body></html>");
     await page.waitForTimeout(3000);
     //     Scroll horizontally by 1000 pixels
     //  scrollBy(x, y) moves relative to the current position.
     // 800 → scroll right by 800 pixels
     // 0 → don't scroll vertically
-    await page.evaluate(() => window.scrollTo(1000, 0));
+            await page.evaluate(() => window.scrollBy(1000, 0));
+        await page.evaluate(() => window.scrollTo(500, 0));
+    await page.evaluate(() => window.scrollBy(1000, 0));
     await page.waitForTimeout(3000);
     //Go to an absolute position
     // scrollTo(x, y) moves the page to an absolute position.
@@ -614,6 +618,8 @@ test("TC025: Handling horizontal scroll from left to right in playwright", async
 // window.scrollBy(800, 0)	Move relative to current position
 // window.scrollX	Current horizontal scroll position
 // window.scrollY	Current vertical scroll position
+// scrollBy(0, 500) adds 500 pixels to the current vertical position.
+// scrollTo(0, 500) sets the vertical position to 500 pixels, regardless of the current position.
 
 test("TC026: Mouse hover using playwright", async ({ page }) => {
 
@@ -1160,25 +1166,29 @@ test('TC050: @railyatri To verify', async ({ page }) => {
     // 4. Clear AC Only and Ladies Quota while retaining the other filters.
     await page.locator("//label[@for='aconly']").check();
     await page.locator("//label[@for='ladiesquota']").click();
-
+    await page.locator("//label[@for='aconly']").uncheck();
     // 6. Open the journey Date calendar & search for hard coded date
     const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
     await dateField.click();
 
-    await page.locator("//button[text()='18']").click();
+    await page.locator("//button[text()='16']").click();
     await page.pause();
 
-    await expect(page.locator('#trainDatepicker')).toHaveValue('18 Sep, Fri');
-    await expect(page.locator('#trainDatepicker')).toHaveValue(/18 Sep/);
+    await expect(page.locator('#trainDatepicker')).toHaveValue('16 Oct, Fri');
+    await expect(page.locator('#trainDatepicker')).toHaveValue(/16 Oct/);
 
     // 6. Open the journey Date calendar & search for future date
 
     await dateField.click();
-    //Get today's date
+    //GeCreates a Date object representing the current date and time.
+    //Example: October 16, 2026.
     const tomorrow = new Date();
-    //Add 1 day, getDate() returns the day of the month:
+//    getDate() returns the current day of the month: 16.
+//     + 1 adds one day: 17.
+//     setDate(17) updates the date to tomorrow.
     tomorrow.setDate(tomorrow.getDate() + 1)
-    //Get only the day & Convert it to a string
+//getDate() returns the day of the month as a number: 17.
+//toString() converts the number into a string: "17".
     const tomorrowDay = tomorrow.getDate().toString();
     console.log(`tomorrowDay: ${tomorrowDay}`);
     //normalize-space() is an XPath function used to remove unnecessary whitespace from text.
@@ -1189,7 +1199,15 @@ test('TC050: @railyatri To verify', async ({ page }) => {
     const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
     await tomorrowButton.click();
     //regular expression - performs a pattern match
-    await expect(page.locator('#trainDatepicker')).toHaveValue(/17 Sep/);
+    await expect(page.locator('#trainDatepicker')).toHaveValue(/17 Oct/);
+    await page.getByRole('button',{name:'Search train', exact: true}).dblclick();
+    await page.locator('input#trainField').first().click();
+    await page.locator('input#trainField').first().fill('Avi');
+    await page.locator('input#trainField').first().clear();
+    await page.locator('input#trainField').first().fill('Avi');
+    await page.keyboard.press('Backspace');
+    await page.locator('input#trainField').first().fill('Bangalore');
+    await page.locator('input#trainField').first().press('Enter');
 })
 
 
@@ -1249,8 +1267,7 @@ test("TC053: File Download using Promise.all Playwright", async ({ page }) => {
         downloadLink.click()
     ])
     // Save the downloaded file
-    await download.saveAs(`downloads/${download.suggestedFilename()}`
-    );
+    await download.saveAs(`downloads/${download.suggestedFilename()}`);
     console.log("Downloaded:", download.suggestedFilename());
 
 })
@@ -1642,3 +1659,32 @@ test('TC066: @routeabort Simulate network failure', async ({ page }) => {
 
     console.log('Network failure simulated successfully');
 });
+
+
+
+test('TC067: @loginhelper login using helper function', async ({ page }) => {
+await page.goto(process.env.BaseUrl);
+await loginHelper(page, process.env.user_name, process.env.password);
+await expect(page).toHaveURL(/inventory/);
+});
+
+
+test('TC068: @railyatriutils To verify date generation from utils', async ({ page }) => {
+    await page.goto('https://www.railyatri.in/');
+
+    await expect(page).toHaveTitle(/RailYatri/);
+
+    await expect(page.locator("//img[@title='RailYatri'] [@alt='RailYatri Logo']").first()).toBeVisible();
+    await expect(page.getByRole('link', { name: 'RailYatri Logo' }).first()).toBeVisible();
+
+    await page.pause();
+    // 6. Open the journey Date calendar & search for future date
+    const tomorrowDay = getTomorrowDate();
+    console.log(tomorrowDay);
+
+    const dateField = page.locator('.verticalStyle_dateFieldLable__9JaUR');
+    await dateField.click();
+
+    const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
+    await tomorrowButton.click();
+})

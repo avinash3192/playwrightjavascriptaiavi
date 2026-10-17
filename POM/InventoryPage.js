@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 //for fixture use export default class InventoryPage orelse remove default
-export default class InventoryPage {
+export class InventoryPage {
     //Region1
     constructor(page) {
         this.page = page
