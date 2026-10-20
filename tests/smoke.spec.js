@@ -1702,4 +1702,3 @@ test('TC068: @networkcapture Capture network requests and responses', async ({ p
 
   await page.goto('https://www.saucedemo.com/');
 });
-
