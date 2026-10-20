@@ -1688,3 +1688,18 @@ test('TC068: @railyatriutils To verify date generation from utils', async ({ pag
     const tomorrowButton = page.locator(`//button[normalize-space()='${tomorrowDay}']`);
     await tomorrowButton.click();
 })
+
+test('TC068: @networkcapture Capture network requests and responses', async ({ page }) => {
+  page.on('request', async request => {
+    console.log('Request URL:', request.url());
+    console.log('Request Method:', request.method());
+  });
+
+  page.on('response', async response => {
+    console.log('Response URL:', response.url());
+    console.log('Status:', response.status());
+  });
+
+  await page.goto('https://www.saucedemo.com/');
+});
+
